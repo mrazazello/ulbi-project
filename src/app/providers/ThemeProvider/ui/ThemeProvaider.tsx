@@ -1,8 +1,12 @@
 import { FC, useState } from "react";
-import { STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext";
+import {
+  LOCAL_STORAGE_THEME_KEY,
+  Theme,
+  ThemeContext,
+} from "../lib/ThemeContext";
 
 const defaultTheme =
-  (localStorage.getItem(STORAGE_THEME_KEY) as Theme) || Theme.LIGNT;
+  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGNT;
 
 const ContextProvider: FC = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(defaultTheme);

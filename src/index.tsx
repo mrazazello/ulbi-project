@@ -1,13 +1,13 @@
+import { ThemeProvaider } from "app/providers/ThemeProvider";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import ContextProvider from "./theme/ThemeProvaider";
+import App from "./app/App";
 
 render(
   <BrowserRouter>
-    <ContextProvider>
+    <ThemeProvaider>
       <App />
-    </ContextProvider>
+    </ThemeProvaider>
   </BrowserRouter>,
   document.getElementById("root")
 );
