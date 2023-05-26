@@ -1,8 +1,8 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { RuleSetRule } from "webpack";
-import { BuildOptions } from "./types/build";
+import { IBuildOptions } from "./types/build";
 
-function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
+function buildLoaders({ isDev }: IBuildOptions): RuleSetRule[] {
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [

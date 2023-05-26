@@ -3,10 +3,10 @@ import buildDevServer from "./buildDevServer";
 import buildLoaders from "./buildLoader";
 import buildPlugins from "./buildPlugins";
 import buildResolvers from "./buildResolvers";
-import { BuildOptions } from "./types/build";
+import { IBuildOptions } from "./types/build";
 
 export function buildWebpackConfig(
-  options: BuildOptions
+  options: IBuildOptions
 ): webpack.Configuration {
   const { mode, paths, isDev } = options;
   return {
