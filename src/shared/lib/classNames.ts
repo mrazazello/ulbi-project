@@ -2,11 +2,11 @@ type ModsType = Record<string, boolean>;
 
 export const classNames = (
   className: string,
-  mods?: ModsType,
-  addons?: string[]
+  mods: ModsType = {},
+  addons: string[] = []
 ): string => {
   const res: string[] = [className];
-  if (addons !== undefined) res.push(...addons);
+  if (addons !== undefined) res.push(...addons.filter(Boolean));
   if (mods !== undefined)
     res.push(
       ...Object.keys(mods)
