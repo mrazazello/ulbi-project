@@ -3,6 +3,16 @@ import { RuleSetRule } from "webpack";
 import { IBuildOptions } from "./types/build";
 
 function buildLoaders({ isDev }: IBuildOptions): RuleSetRule[] {
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+    use: ["file-loader"],
+  };
+
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  };
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -32,7 +42,7 @@ function buildLoaders({ isDev }: IBuildOptions): RuleSetRule[] {
     exclude: /node_modules/,
   };
 
-  return [cssLoader, tsLoader];
+  return [cssLoader, tsLoader, svgLoader, fileLoader];
 }
 
 export default buildLoaders;

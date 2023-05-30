@@ -6,13 +6,13 @@ export const classNames = (
   addons: string[] = []
 ): string => {
   const res: string[] = [className];
-  if (addons !== undefined) res.push(...addons.filter(Boolean));
   if (mods !== undefined)
     res.push(
       ...Object.keys(mods)
         .filter((el) => mods[el] === true)
         .map((el) => el)
     );
+  if (addons !== undefined) res.push(...addons.filter(Boolean));
 
   return res.join(" ");
 };
