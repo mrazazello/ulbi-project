@@ -18,6 +18,7 @@ function buildPlugins(options: IBuildOptions): webpack.WebpackPluginInstance[] {
     new webpack.DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ];
 }
 
