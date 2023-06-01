@@ -7,9 +7,9 @@ export enum ThemeEnum {
   DARK = "dark",
 }
 
-interface themeContextProps {
+interface IThemeContextProps {
   theme?: ThemeEnum;
   setTheme?: (theme: ThemeEnum) => void;
 }
 
-export const ThemeContext = createContext<themeContextProps>({});
+export const ThemeContext = createContext<IThemeContextProps>({});
