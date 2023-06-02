@@ -13,6 +13,17 @@ function buildLoaders({ isDev }: IBuildOptions): RuleSetRule[] {
     use: ["@svgr/webpack"],
   };
 
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ["@babel/preset-env"],
+      },
+    },
+  };
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -42,7 +53,7 @@ function buildLoaders({ isDev }: IBuildOptions): RuleSetRule[] {
     exclude: /node_modules/,
   };
 
-  return [cssLoader, tsLoader, svgLoader, fileLoader];
+  return [fileLoader, svgLoader, cssLoader, babelLoader, tsLoader];
 }
 
 export default buildLoaders;
