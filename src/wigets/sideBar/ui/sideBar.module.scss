@@ -2,10 +2,8 @@
   width: var(--side-bar-width);
   height: calc(100vh - var(--navbar-height));
   background-color: var(--inverted-bg-color);
-
   position: relative;
   transition: width 0.3s;
-
   display: flex;
   justify-content: center;
   flex-direction: column;
