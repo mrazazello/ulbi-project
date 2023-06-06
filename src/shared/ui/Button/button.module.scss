@@ -1,11 +1,14 @@
 .button {
-  cursor: pointer;
-  color: var(--primary-color);
+    cursor: pointer;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
 }
 
 .clear {
-  padding: 0;
-  border: none;
-  background: none;
-  outline: none;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    color: inherit;
 }

@@ -1,24 +1,24 @@
 .sideBar {
-  width: var(--side-bar-width);
-  height: calc(100vh - var(--navbar-height));
-  background-color: var(--inverted-bg-color);
-  position: relative;
-  transition: width 0.3s;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+    width: var(--side-bar-width);
+    height: calc(100vh - var(--navbar-height));
+    background-color: var(--inverted-bg-color);
+    position: relative;
+    transition: width 0.3s;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .collapsed {
-  width: var(--side-bar-width-collapsed);
+    width: var(--side-bar-width-collapsed);
 }
 
 .swithers {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
 }
 
-.button {
-  color: var(--inverted-primary-color);
+.invertedColor {
+    color: var(--inverted-primary-color);
 }

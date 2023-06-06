@@ -17,17 +17,17 @@ export const SideBar: FC<IProps> = (props) => {
   };
 
   return (
-    <div
+    <aside
       className={classNames(cls.sideBar, { [cls.collapsed]: collapsed }, [
         className,
       ])}
     >
-      <Button onClick={sideBarToggle} className={cls.button}>
+      <Button onClick={sideBarToggle} className={cls.invertedColor}>
         toggle
       </Button>
       <div className={cls.swithers}>
-        <LangSwitcher className={cls.button} />
+        <LangSwitcher className={cls.invertedColor} />
       </div>
-    </div>
+    </aside>
   );
 };

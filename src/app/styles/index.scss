@@ -4,17 +4,28 @@
 @import "themes/dark";
 
 .app {
-  font: var(--font-m);
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-  min-height: 600px;
+    font: var(--font-m);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.app .navBarOrder {
+    order: 1;
+
+    @media screen and (max-width: 900px) {
+        order: 3;
+    }
 }
 
 .mainLayout {
-  display: flex;
+    display: flex;
+    order: 2;
 }
 
 .pageWrapper {
-  flex-grow: 1;
-  padding: 20px;
+    flex-grow: 1;
+    padding: 20px;
 }
