@@ -2,6 +2,8 @@ import { LangSwitcher } from "features/LangSwitcher";
 import { FC, useState } from "react";
 import { classNames } from "shared/lib/classNames";
 import { Button } from "shared/ui/Button/Button";
+
+import { ArrowBarLeft, ArrowBarRight } from "react-bootstrap-icons";
 import cls from "./sideBar.module.scss";
 
 interface IProps {
@@ -22,11 +24,13 @@ export const SideBar: FC<IProps> = (props) => {
         className,
       ])}
     >
-      <Button onClick={sideBarToggle} className={cls.invertedColor}>
+      <Button onClick={sideBarToggle} className="invertedColor">
         toggle
+        {collapsed ? <ArrowBarLeft /> : <ArrowBarRight />}
+        <i className="bi-alarm"></i>
       </Button>
       <div className={cls.swithers}>
-        <LangSwitcher className={cls.invertedColor} />
+        <LangSwitcher className="invertedColor" />
       </div>
     </aside>
   );

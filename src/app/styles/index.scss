@@ -2,6 +2,7 @@
 @import "variables/global";
 @import "themes/normal";
 @import "themes/dark";
+@import "variables/config";
 
 .app {
     font: var(--font-m);
@@ -15,7 +16,7 @@
 .app .navBarOrder {
     order: 1;
 
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: $media-sm) {
         order: 3;
     }
 }

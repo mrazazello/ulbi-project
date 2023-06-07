@@ -2,7 +2,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { RuleSetRule } from "webpack";
 import { IBuildOptions } from "./types/build";
 
-function buildLoaders({ isDev }: IBuildOptions): RuleSetRule[] {
+function buildLoaders({ isDev, paths }: IBuildOptions): RuleSetRule[] {
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff|woff2)$/i,
     use: ["file-loader"],
@@ -43,7 +43,14 @@ function buildLoaders({ isDev }: IBuildOptions): RuleSetRule[] {
         },
       },
       // Compiles Sass to CSS
-      "sass-loader",
+      {
+        loader: "sass-loader",
+        options: {
+          sassOptions: {
+            includePaths: [paths.src],
+          },
+        },
+      },
     ],
   };
 

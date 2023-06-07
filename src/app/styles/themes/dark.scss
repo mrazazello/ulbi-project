@@ -5,3 +5,7 @@
     --inverted-primary-color: black;
     --secondary-color: rgb(0 87 0);
 }
+
+.app .inverted-color {
+    color: var(--inverted-primary-color);
+}
