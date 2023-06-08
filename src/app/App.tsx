@@ -12,17 +12,15 @@ const App = () => {
   const { theme } = useTheme();
 
   return (
-    <>
-      <div className={classNames("app", {}, [theme])}>
-        <Suspense fallback={<Preloader text="Loading lang" />}>
-          <NavBar className="navBarOrder" />
-          <div className="mainLayout">
-            <SideBar />
-            <AppRouter />
-          </div>
-        </Suspense>
-      </div>
-    </>
+    <div className={classNames("app", {}, [theme])}>
+      <Suspense fallback={<Preloader text="Loading lang" />}>
+        <NavBar className="navBarOrder" />
+        <div className="mainLayout">
+          <SideBar />
+          <AppRouter />
+        </div>
+      </Suspense>
+    </div>
   );
 };
 
