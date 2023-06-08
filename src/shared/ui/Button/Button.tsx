@@ -4,23 +4,33 @@ import cls from "./button.module.scss";
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: ThemeButtonEnum;
+  theme?: ButtonThemeEnum;
+  size?: ButtonSizeEnum;
 }
 
-export enum ThemeButtonEnum {
+export enum ButtonThemeEnum {
   CLEAR = "clear",
+  TRANSPARENT = "transparent",
+  NORMAL = "normal",
+}
+
+export enum ButtonSizeEnum {
+  SMALL = "small",
+  REGULAR = "regular",
+  BIG = "big",
 }
 
 export const Button: FC<IButtonProps> = (props) => {
   const {
     className,
     children,
-    theme = ThemeButtonEnum.CLEAR,
+    theme = ButtonThemeEnum.CLEAR,
+    size = ButtonSizeEnum.REGULAR,
     ...otherProps
   } = props;
   return (
     <button
-      className={classNames(cls.button, {}, [className, cls[theme]])}
+      className={classNames(cls.button, {}, [className, cls[theme], cls[size]])}
       {...otherProps}
     >
       {children}

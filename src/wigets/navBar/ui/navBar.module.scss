@@ -1,4 +1,4 @@
-@import "app/styles/variables/config";
+@import "variables/config";
 
 .navBar {
     display: flex;
@@ -25,11 +25,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: small;
+    font-size: var(--font-size-m);
     text-decoration: none;
 
     @media screen and (min-width: $media-sm) {
-        width: 100px;
+        width: 120px;
         flex-direction: row;
         justify-content: flex-start;
         gap: 10px;

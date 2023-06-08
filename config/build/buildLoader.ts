@@ -47,7 +47,7 @@ function buildLoaders({ isDev, paths }: IBuildOptions): RuleSetRule[] {
         loader: "sass-loader",
         options: {
           sassOptions: {
-            includePaths: [paths.src],
+            includePaths: [paths.scssGlobal],
           },
         },
       },

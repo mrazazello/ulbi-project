@@ -2,8 +2,8 @@ import path from "path";
 import webpack from "webpack";
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import {
-  IBuildEnv,
   BuildModeType,
+  IBuildEnv,
   IBuildPaths,
 } from "./config/build/types/build";
 
@@ -13,6 +13,7 @@ export default (env: IBuildEnv): webpack.Configuration => {
     build: path.resolve(__dirname, "build"),
     html: path.resolve(__dirname, "public", "index.html"),
     src: path.resolve(__dirname, "src"),
+    scssGlobal: path.resolve(__dirname, "src/app/styles/"),
   };
 
   const mode: BuildModeType = env.mode || "development";
