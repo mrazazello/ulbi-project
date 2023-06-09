@@ -60,6 +60,8 @@ export default {
 
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: ["node_modules"],
+  rootDir: "../../",
+  modulePaths: ["<rootDir>src"],
 
   // An array of file extensions your modules use
   moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
@@ -98,7 +100,6 @@ export default {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: "../../",
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
