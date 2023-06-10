@@ -14,7 +14,6 @@ export function useOutsideClick(
         open &&
         !ref.current.contains(event.target)
       ) {
-        // console.log("you clicked outside");
         callback();
       }
     }
@@ -23,7 +22,6 @@ export function useOutsideClick(
       document.addEventListener("mousedown", handleClickOutside);
     }
     return () => {
-      // console.log("removing event listener");
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [ref, open]);
