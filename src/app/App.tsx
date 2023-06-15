@@ -12,7 +12,7 @@ const App = () => {
   const { theme } = useTheme();
 
   return (
-    <div className={classNames("app", {}, [theme])}>
+    <div className={classNames("app", {}, ["appLayout", theme])}>
       <Suspense fallback={<Preloader text="Loading lang" />}>
         <NavBar className="navBarOrder" />
         <div className="mainLayout">

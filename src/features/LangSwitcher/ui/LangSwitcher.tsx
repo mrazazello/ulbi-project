@@ -20,17 +20,17 @@ export const LangSwitcher: FC<IProps> = (props) => {
   const menuItems: IDropDownMenuItem[] = [
     {
       label: (
-        <div key={"ru"} onClick={changeLangToggle}>
+        <a key={"ru"} onClick={changeLangToggle}>
           Русский
-        </div>
+        </a>
       ),
       key: "ru",
     },
     {
       label: (
-        <div key={"en"} onClick={changeLangToggle}>
+        <a key={"en"} onClick={changeLangToggle}>
           English
-        </div>
+        </a>
       ),
       key: "en",
     },

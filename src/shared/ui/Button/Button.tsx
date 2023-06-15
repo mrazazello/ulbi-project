@@ -2,22 +2,21 @@ import { ButtonHTMLAttributes, FC } from "react";
 import { classNames } from "shared/lib/classNames";
 import cls from "./button.module.scss";
 
-interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  theme?: ButtonThemeEnum;
-  size?: ButtonSizeEnum;
-}
-
 export enum ButtonThemeEnum {
   CLEAR = "clear",
-  TRANSPARENT = "transparent",
-  NORMAL = "normal",
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
 }
 
 export enum ButtonSizeEnum {
   SMALL = "small",
   REGULAR = "regular",
   BIG = "big",
+}
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  theme?: ButtonThemeEnum;
+  size?: ButtonSizeEnum;
 }
 
 export const Button: FC<IButtonProps> = (props) => {

@@ -13,14 +13,12 @@ const AboutPage = () => {
       <h1>{t("page title")}</h1>
       <div>
         <Button theme={ButtonThemeEnum.CLEAR}>Button (clear)</Button>
-        <Button theme={ButtonThemeEnum.TRANSPARENT}>
-          Button (transparent)
-        </Button>
-        <Button theme={ButtonThemeEnum.NORMAL} size={ButtonSizeEnum.SMALL}>
+        <Button theme={ButtonThemeEnum.SECONDARY}>Button (transparent)</Button>
+        <Button theme={ButtonThemeEnum.SECONDARY} size={ButtonSizeEnum.SMALL}>
           Button (small)
         </Button>
-        <Button theme={ButtonThemeEnum.NORMAL}>Button (normal)</Button>
-        <Button theme={ButtonThemeEnum.NORMAL} size={ButtonSizeEnum.BIG}>
+        <Button theme={ButtonThemeEnum.SECONDARY}>Button (normal)</Button>
+        <Button theme={ButtonThemeEnum.SECONDARY} size={ButtonSizeEnum.BIG}>
           Button (big)
         </Button>
       </div>

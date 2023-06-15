@@ -52,7 +52,13 @@ export const DropDown: FC<IProps> = (props) => {
           ref={refs.setFloating}
           style={floatingStyles}
         >
-          {menuItems.map((item) => item.label)}
+          {menuItems.length > 0 && (
+            <ul>
+              {menuItems.map((item) => (
+                <li key={item.key}>{item.label}</li>
+              ))}
+            </ul>
+          )}
         </div>
       )}
     </div>

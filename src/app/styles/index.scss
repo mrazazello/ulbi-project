@@ -11,14 +11,17 @@
 
 .app {
     font: var(--font-m);
-    background-color: var(--bg-color);
-    color: var(--primary-color);
+    background-color: rgb(var(--bg-color));
+    color: rgb(var(--primary-color));
+}
+
+.appLayout {
     min-height: 600px;
     display: flex;
     flex-direction: column;
 }
 
-.app .navBarOrder {
+.appLayout .navBarOrder {
     order: 1;
 
     @media screen and (max-width: $media-sm) {

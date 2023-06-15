@@ -42,7 +42,7 @@ export const NavBar = ({ className }: PropsType) => {
           More
         </AppLink>
       </div>
-      <LangSwitcher className="invertedColor" />
+      <LangSwitcher />
       <ThemeSwitcher />
     </nav>
   );
