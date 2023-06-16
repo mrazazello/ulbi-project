@@ -1,18 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+
 import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
 import { DropDown, IDropDownMenuItem } from "./DropDown";
-
-const meta = {
-  title: "shared/Dropdown",
-  component: DropDown,
-  tags: ["autodocs"],
-  argTypes: {},
-} satisfies Meta<typeof DropDown>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
 
 const menuItems: IDropDownMenuItem[] = [
   {
@@ -25,17 +16,23 @@ const menuItems: IDropDownMenuItem[] = [
   },
 ];
 
-export const Light: Story = {
+export default {
+  title: "shared/DropDown",
+  component: DropDown,
+  tags: ["autodocs"],
+  argTypes: {},
   args: {
-    menuItems,
     children: "Click me",
+    menuItems,
   },
-};
+} as ComponentMeta<typeof DropDown>;
 
-export const Dark: Story = {
-  args: {
-    menuItems,
-    children: "Click me",
-  },
-  decorators: [themeDecorator(ThemeEnum.DARK)],
-};
+const Template: ComponentStory<typeof DropDown> = (args) =>
+  DropDown({ ...args });
+
+export const Normal = Template.bind({});
+Normal.args = {};
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [themeDecorator(ThemeEnum.DARK)];

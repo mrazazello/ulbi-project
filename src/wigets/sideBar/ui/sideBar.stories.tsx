@@ -1,30 +1,23 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 import { ThemeEnum } from "app/providers/themeProvider";
+import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
 import { SideBar } from "./SideBar";
 
-const meta = {
-  title: "wigets/Sidebar",
+export default {
+  title: "wigets/SideBar",
   component: SideBar,
   tags: ["autodocs"],
   argTypes: {},
-} satisfies Meta<typeof SideBar>;
+  args: {},
+} as ComponentMeta<typeof SideBar>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+const Template: ComponentStory<typeof SideBar> = (args) => SideBar({ ...args });
 
-export const Light: Story = {
-  args: {
-    children: "Text",
-  },
-  // decorators: [themeDecorator(ThemeEnum.LIGHT)],
-};
+export const Normal = Template.bind({});
+Normal.args = {};
 
-export const dark: Story = {
-  args: {
-    children: "Text",
-  },
-  decorators: [themeDecorator(ThemeEnum.DARK)],
-};
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [themeDecorator(ThemeEnum.DARK)];

@@ -1,32 +1,26 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+
 import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
 import { AppLink } from "./AppLink";
 
-const meta = {
+export default {
   title: "shared/AppLink",
   component: AppLink,
   tags: ["autodocs"],
   argTypes: {},
-  // decorators: [routerDecorator],
-} satisfies Meta<typeof AppLink>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Light: Story = {
   args: {
     to: "/",
     children: "test",
   },
-  // decorators: [themeDecorator(ThemeEnum.DARK)],
-};
+} as ComponentMeta<typeof AppLink>;
 
-export const Dark: Story = {
-  args: {
-    to: "/",
-    children: "test",
-  },
-  decorators: [themeDecorator(ThemeEnum.DARK)],
-};
+const Template: ComponentStory<typeof AppLink> = (args) => AppLink({ ...args });
+
+export const LinkLight = Template.bind({});
+LinkLight.args = {};
+
+export const LinkDark = Template.bind({});
+LinkDark.args = {};
+LinkDark.decorators = [themeDecorator(ThemeEnum.DARK)];

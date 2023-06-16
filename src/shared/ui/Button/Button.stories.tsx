@@ -1,60 +1,51 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+
 import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
 import { Button, ButtonThemeEnum } from "./Button";
 
-const meta = {
+export default {
   title: "shared/Button",
   component: Button,
   tags: ["autodocs"],
   argTypes: {},
-} satisfies Meta<typeof Button>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = {
   args: {
-    theme: ButtonThemeEnum.PRIMARY,
     children: "Text",
   },
+} as ComponentMeta<typeof Button>;
+
+const Template: ComponentStory<typeof Button> = (args) => Button({ ...args });
+
+export const Primary = Template.bind({});
+Primary.args = {
+  theme: ButtonThemeEnum.PRIMARY,
 };
 
-export const Secondary: Story = {
-  args: {
-    theme: ButtonThemeEnum.SECONDARY,
-    children: "Text",
-  },
+export const Secondary = Template.bind({});
+Secondary.args = {
+  theme: ButtonThemeEnum.SECONDARY,
 };
 
-export const Clear: Story = {
-  args: {
-    theme: ButtonThemeEnum.CLEAR,
-    children: "Text",
-  },
+export const Clear = Template.bind({});
+Clear.args = {
+  theme: ButtonThemeEnum.CLEAR,
 };
 
-export const PrimaryDark: Story = {
-  args: {
-    theme: ButtonThemeEnum.PRIMARY,
-    children: "Text",
-  },
-  decorators: [themeDecorator(ThemeEnum.DARK)],
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {
+  theme: ButtonThemeEnum.PRIMARY,
 };
+PrimaryDark.decorators = [themeDecorator(ThemeEnum.DARK)];
 
-export const SecondaryDark: Story = {
-  args: {
-    theme: ButtonThemeEnum.SECONDARY,
-    children: "Text",
-  },
-  decorators: [themeDecorator(ThemeEnum.DARK)],
+export const SecondaryDark = Template.bind({});
+SecondaryDark.args = {
+  theme: ButtonThemeEnum.SECONDARY,
 };
+SecondaryDark.decorators = [themeDecorator(ThemeEnum.DARK)];
 
-export const ClearDark: Story = {
-  args: {
-    theme: ButtonThemeEnum.CLEAR,
-    children: "Text",
-  },
-  decorators: [themeDecorator(ThemeEnum.DARK)],
+export const ClearDark = Template.bind({});
+ClearDark.args = {
+  theme: ButtonThemeEnum.SECONDARY,
 };
+ClearDark.decorators = [themeDecorator(ThemeEnum.DARK)];

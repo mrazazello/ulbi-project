@@ -1,24 +1,23 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+
 import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
 import { NavBar } from "./NavBar";
 
-const meta = {
+export default {
   title: "wigets/NavBar",
   component: NavBar,
   tags: ["autodocs"],
   argTypes: {},
-} satisfies Meta<typeof NavBar>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Light: Story = {
   args: {},
-};
+} as ComponentMeta<typeof NavBar>;
 
-export const Dark: Story = {
-  args: {},
-  decorators: [themeDecorator(ThemeEnum.DARK)],
-};
+const Template: ComponentStory<typeof NavBar> = (args) => NavBar({ ...args });
+
+export const Normal = Template.bind({});
+Normal.args = {};
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [themeDecorator(ThemeEnum.DARK)];
