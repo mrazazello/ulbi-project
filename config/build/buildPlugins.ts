@@ -8,7 +8,7 @@ import { IBuildOptions } from "./types/build";
 function buildPlugins(options: IBuildOptions): webpack.WebpackPluginInstance[] {
   const { paths, isDev } = options;
 
-  return [
+  const plugins = [
     new webpack.ProgressPlugin(),
     new HTMLWebpackPlugin({
       template: paths.html,
@@ -20,9 +20,16 @@ function buildPlugins(options: IBuildOptions): webpack.WebpackPluginInstance[] {
     new webpack.DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
+
+  if (isDev) {
+    plugins.push(
+      new webpack.HotModuleReplacementPlugin(),
+      new BundleAnalyzerPlugin({ openAnalyzer: false })
+    );
+  }
+
+  return plugins;
 }
 
 export default buildPlugins;
