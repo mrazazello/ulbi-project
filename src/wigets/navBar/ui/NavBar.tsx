@@ -11,6 +11,7 @@ import {
   Wallet,
 } from "react-bootstrap-icons";
 
+import { routePath } from "shared/config/routeConfig/routeConfig";
 import cls from "./navBar.module.scss";
 
 type PropsType = {
@@ -21,23 +22,23 @@ export const NavBar = ({ className }: PropsType) => {
   return (
     <nav className={classNames(cls.navBar, {}, [className])}>
       <div className={cls.mainMenu}>
-        <AppLink to="/">
+        <AppLink to={routePath.main}>
           <PlayBtn width={24} height={24} />
           Start
         </AppLink>
-        <AppLink to="/about">
+        <AppLink to={routePath.about}>
           <Heart width={24} height={24} />
           About
         </AppLink>
-        <AppLink to="/about">
+        <AppLink to={routePath.login}>
           <BarChart width={24} height={24} />
-          Progress
+          Login
         </AppLink>
-        <AppLink to="/about">
+        <AppLink to={routePath.about}>
           <Wallet width={24} height={24} />
           Orders
         </AppLink>
-        <AppLink to="/about">
+        <AppLink to={routePath.about}>
           <ThreeDots width={24} height={24} />
           More
         </AppLink>

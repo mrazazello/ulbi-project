@@ -1,0 +1,32 @@
+.input {
+    display: block;
+
+    // position: relative;
+    width: 100%;
+    text-overflow: ellipsis;
+    text-shadow: none;
+    color: rgb(var(--primary-color));
+    background: rgb(var(--bg-color));
+    border: 1px solid #395365; // var for input and button border
+    border-radius: 8px;
+    transition: border-color 400ms;
+}
+
+.small {
+    height: 24px;
+    padding: 0.313rem 0.75rem;
+    border-radius: 3px;
+}
+
+.regular {
+    height: 34px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+}
+
+.big {
+    height: 63px;
+    padding: 0.938rem 1.563rem;
+    border-width: 2px;
+    border-radius: 8px;
+}

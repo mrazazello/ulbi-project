@@ -1,15 +1,15 @@
 import "@testing-library/jest-dom";
 import { fireEvent, screen } from "@testing-library/react";
+import { componentRender } from "shared/config/tests/componentRender";
 import { SideBar } from "./SideBar";
-import { renderWithTranslation } from "shared/lib/renderWithTranslation";
 
 describe("Sidebar test", () => {
   test("Sidebar test", () => {
-    renderWithTranslation(<SideBar />);
+    componentRender(<SideBar />);
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
   });
   test("Toggle test", () => {
-    renderWithTranslation(<SideBar />);
+    componentRender(<SideBar />);
     const sidebarEl = screen.getByTestId("sidebar");
     expect(sidebarEl).toBeInTheDocument();
 

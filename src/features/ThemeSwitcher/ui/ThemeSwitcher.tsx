@@ -17,6 +17,7 @@ export const ThemeSwitcher = (props: IProps) => {
       theme={ButtonThemeEnum.CLEAR}
       className={classNames("", {}, [className])}
       onClick={themeToggle}
+      square
     >
       {theme === ThemeEnum.LIGHT ? <Sun /> : <Moon />}
     </Button>

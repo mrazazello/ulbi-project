@@ -5,6 +5,7 @@ import { Button } from "shared/ui/Button/Button";
 import { DropDown } from "shared/ui/DropDown";
 import { IDropDownMenuItem } from "shared/ui/DropDown/DropDown";
 
+type LangType = "ru" | "en";
 interface IProps {
   className?: string;
 }
@@ -13,14 +14,14 @@ export const LangSwitcher: FC<IProps> = (props) => {
   const { className } = props;
   const { i18n } = useTranslation();
 
-  const changeLangToggle = () => {
-    i18n.changeLanguage(i18n.language === "en" ? "ru" : "en");
+  const changeLangToggle = (lang: LangType) => {
+    i18n.changeLanguage(lang);
   };
 
   const menuItems: IDropDownMenuItem[] = [
     {
       label: (
-        <a key={"ru"} onClick={changeLangToggle}>
+        <a key={"ru"} onClick={() => changeLangToggle("ru")}>
           Русский
         </a>
       ),
@@ -28,7 +29,7 @@ export const LangSwitcher: FC<IProps> = (props) => {
     },
     {
       label: (
-        <a key={"en"} onClick={changeLangToggle}>
+        <a key={"en"} onClick={() => changeLangToggle("en")}>
           English
         </a>
       ),
