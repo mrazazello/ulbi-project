@@ -1,12 +1,8 @@
-.app.dark {
+body .dark {
     --bg-color: 0 0 0;
     --inverted-bg-color: 255 255 255;
     --primary-color: 255 255 255;
     --inverted-primary-color: 0 0 0;
     --secondary-color: 0 87 0;
     --menu-highlight-color: 165 42 42;
-}
-
-.app .inverted-color {
-    color: rgb(var(--inverted-primary-color));
 }

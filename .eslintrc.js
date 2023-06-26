@@ -11,14 +11,16 @@ module.exports = {
     project: ["./tsconfig.json"]
   },
   ignorePatterns: [".eslintrc.*"],
-  plugins: ["import", "react", "prettier"],
+  plugins: ["import", "react", "prettier", "react-hooks"],
   rules: {
     "prettier/prettier": "error",
     "import/no-extraneous-dependencies": "warn",
     // webpack config errors
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "warn",
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error"
   },
   settings: {
     react:{

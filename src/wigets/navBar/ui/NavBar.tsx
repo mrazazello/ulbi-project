@@ -1,7 +1,10 @@
+import { useCallback, useState } from "react";
+
 import { LangSwitcher } from "features/LangSwitcher";
 import { ThemeSwitcher } from "features/ThemeSwitcher";
 import { classNames } from "shared/lib/classNames";
 import { AppLink } from "shared/ui/AppLink/AppLink";
+import { Button } from "shared/ui/Button/Button";
 
 import {
   BarChart,
@@ -11,7 +14,10 @@ import {
   Wallet,
 } from "react-bootstrap-icons";
 
+import { t } from "i18next";
 import { routePath } from "shared/config/routeConfig/routeConfig";
+import { ButtonThemeEnum } from "shared/ui/Button/Button";
+import { Modal } from "shared/ui/Modal/Modal";
 import cls from "./navBar.module.scss";
 
 type PropsType = {
@@ -19,6 +25,12 @@ type PropsType = {
 };
 
 export const NavBar = ({ className }: PropsType) => {
+  const [isAuthorize, setAuthorise] = useState(false);
+
+  const toggleAuthorize = useCallback(() => {
+    setAuthorise((prev) => !prev);
+  }, []);
+
   return (
     <nav className={classNames(cls.navBar, {}, [className])}>
       <div className={cls.mainMenu}>
@@ -45,6 +57,12 @@ export const NavBar = ({ className }: PropsType) => {
       </div>
       <LangSwitcher />
       <ThemeSwitcher />
+      <Button theme={ButtonThemeEnum.SECONDARY} onClick={toggleAuthorize}>
+        {t("Enter")}
+      </Button>
+      <Modal isOpen={isAuthorize} onClose={toggleAuthorize}>
+        Авторизация!!
+      </Modal>
     </nav>
   );
 };

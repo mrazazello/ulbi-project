@@ -6,7 +6,6 @@ import { NavBar } from "wigets/navBar";
 import { SideBar } from "wigets/sideBar";
 
 import { Preloader } from "shared/ui/Preloader/Preloader";
-import "./styles/index.scss";
 
 const App = () => {
   const { theme } = useTheme();
