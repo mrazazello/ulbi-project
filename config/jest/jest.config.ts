@@ -2,6 +2,7 @@ import path from "path";
 
 export default {
   clearMocks: true,
+  globals: { IS_DEV: true },
 
   coveragePathIgnorePatterns: ["/node_modules/"],
 
