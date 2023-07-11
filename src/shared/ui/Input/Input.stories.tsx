@@ -12,6 +12,7 @@ export default {
   argTypes: {},
   args: {
     name: "Test",
+    placeholder: "Test placeholder",
   },
 } as ComponentMeta<typeof Input>;
 

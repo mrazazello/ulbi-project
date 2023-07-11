@@ -14,10 +14,10 @@ import {
   Wallet,
 } from "react-bootstrap-icons";
 
-import { t } from "i18next";
+import { LoginModal } from "features/AuthByUsername";
+import { useTranslation } from "react-i18next";
 import { routePath } from "shared/config/routeConfig/routeConfig";
 import { ButtonThemeEnum } from "shared/ui/Button/Button";
-import { Modal } from "shared/ui/Modal/Modal";
 import cls from "./navBar.module.scss";
 
 type PropsType = {
@@ -26,6 +26,7 @@ type PropsType = {
 
 export const NavBar = ({ className }: PropsType) => {
   const [isAuthorize, setAuthorise] = useState(false);
+  const { t } = useTranslation();
 
   const toggleAuthorize = useCallback(() => {
     setAuthorise((prev) => !prev);
@@ -58,11 +59,9 @@ export const NavBar = ({ className }: PropsType) => {
       <LangSwitcher />
       <ThemeSwitcher />
       <Button theme={ButtonThemeEnum.SECONDARY} onClick={toggleAuthorize}>
-        {t("Enter")}
+        {t("log in")}
       </Button>
-      <Modal isOpen={isAuthorize} onClose={toggleAuthorize}>
-        Авторизация!!
-      </Modal>
+      <LoginModal isOpen={isAuthorize} onClose={() => setAuthorise(false)} />
     </nav>
   );
 };

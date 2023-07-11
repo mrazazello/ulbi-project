@@ -1,4 +1,7 @@
 {
-  "change lang": "Change language",
-  "toggle sidebar": "переключить"
+  "change lang": "Сменить язык",
+  "toggle sidebar": "переключить",
+  "username": "Имя пользователя",
+  "password": "Пароль",
+  "log in": "Войти"
 }

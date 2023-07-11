@@ -5,6 +5,7 @@ import { Portal } from "shared/ui/Portal/Portal";
 import cls from "./modal.module.scss";
 
 interface IProps {
+  lazy?: boolean;
   className?: string;
   isOpen: boolean;
   onClose: () => void;
@@ -12,12 +13,18 @@ interface IProps {
 }
 
 export const Modal: FC<IProps> = (props) => {
-  const { className, children, isOpen, onClose, selector } = props;
+  const { lazy, className, children, isOpen, onClose, selector } = props;
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const { theme } = useTheme();
 
-  console.log("theme: ", theme);
+  const [isMounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setMounted(true);
+    }
+  }, [isOpen]);
 
   const closeHandler = useCallback(() => {
     setIsClosing(true);
@@ -51,6 +58,10 @@ export const Modal: FC<IProps> = (props) => {
       clearTimeout(timerRef.current);
     };
   }, [escapeKeyListener, isOpen]);
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal selector={selector}>

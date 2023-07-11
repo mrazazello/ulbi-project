@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, InputHTMLAttributes, useEffect, useRef } from "react";
 
 import { classNames } from "shared/lib/classNames";
 import cls from "./input.module.scss";
@@ -8,19 +8,57 @@ export enum InputSizeEnum {
   REGULAR = "regular",
   BIG = "big",
 }
-
-interface IProps {
+type HTMLInputPropsType = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "onChange" | "value"
+>;
+interface IProps extends HTMLInputPropsType {
+  autofocus?: boolean;
+  placeholder?: string;
   className?: string;
   name: string;
-  size?: InputSizeEnum;
+  theme?: InputSizeEnum;
+  value?: string;
+  onChange?: (value: string) => void;
 }
 
-export const Input: FC<IProps> = (props) => {
-  const { className, name, size = InputSizeEnum.REGULAR } = props;
+export const Input: FC<IProps> = (props: IProps) => {
+  const {
+    autofocus = false,
+    placeholder,
+    className,
+    name,
+    theme = InputSizeEnum.REGULAR,
+    value,
+    onChange,
+    ...otherProps
+  } = props;
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e.target.value);
+  };
+
+  useEffect(() => {
+    if (autofocus) {
+      inputRef.current?.focus();
+    }
+  }, [autofocus]);
+
   return (
-    <input
-      className={classNames(cls.input, {}, [className, cls[size]])}
-      name={name}
-    />
+    <div className={cls.inputWrapper}>
+      {placeholder && <div className={cls.placeholder}>{placeholder}</div>}
+      <input
+        className={classNames(cls.input, {}, [className, cls[theme]])}
+        name={name}
+        value={value}
+        onChange={onChangeHandler}
+        {...otherProps}
+        ref={inputRef}
+      />
+    </div>
   );
 };
+
+// Input.displayName = "Input";

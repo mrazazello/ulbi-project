@@ -1,7 +1,14 @@
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.placeholder {
+    margin-bottom: 2px;
+}
+
 .input {
     display: block;
-
-    // position: relative;
     width: 100%;
     text-overflow: ellipsis;
     text-shadow: none;
