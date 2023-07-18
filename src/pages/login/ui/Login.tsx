@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
-import { FormField } from "wigets/formField";
 
 const LoginPage = () => {
   const { t } = useTranslation("login");
@@ -9,13 +8,9 @@ const LoginPage = () => {
     <div className="centeredContainer">
       <h1>{t("page title")}</h1>
 
-      <FormField title={t("field_login")} required error="error">
-        <Input name="login" />
-      </FormField>
+      <Input name="login" placeholder={t("field_login")} />
 
-      <FormField title={t("field_password")} required>
-        <Input name="password" />
-      </FormField>
+      <Input name="password" placeholder={t("field_password")} />
 
       <Button theme={ButtonThemeEnum.PRIMARY}>{t("login")}</Button>
     </div>

@@ -1,4 +1,4 @@
-import { ThemeSwitcher } from "features/ThemeSwitcher";
+import { ThemeSwitcher } from "wigets/ThemeSwitcher";
 import { FC, useState } from "react";
 import { routePath } from "shared/config/routeConfig/routeConfig";
 import { classNames } from "shared/lib/classNames";

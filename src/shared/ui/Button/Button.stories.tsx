@@ -32,6 +32,19 @@ Clear.args = {
   theme: ButtonThemeEnum.CLEAR,
 };
 
+export const Disabled = Template.bind({});
+Clear.args = {
+  theme: ButtonThemeEnum.PRIMARY,
+  disabled: true,
+};
+
+export const DisabledDark = Template.bind({});
+Clear.args = {
+  theme: ButtonThemeEnum.PRIMARY,
+  disabled: true,
+};
+DisabledDark.decorators = [themeDecorator(ThemeEnum.DARK)];
+
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   theme: ButtonThemeEnum.PRIMARY,

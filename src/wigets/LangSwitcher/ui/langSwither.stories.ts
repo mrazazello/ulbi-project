@@ -1,14 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
-import { ThemeSwitcher } from "./ThemeSwitcher";
+import { LangSwitcher } from "./LangSwitcher";
 
 const meta = {
-  title: "features/ThemeSwitcher",
-  component: ThemeSwitcher,
+  title: "wigets/LangSwitcher",
+  component: LangSwitcher,
   argTypes: {},
-} satisfies Meta<typeof ThemeSwitcher>;
+} satisfies Meta<typeof LangSwitcher>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

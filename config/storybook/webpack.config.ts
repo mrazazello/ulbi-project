@@ -1,7 +1,7 @@
 // Нужен для парсинга абсолютны импортов в StoryBook
 
 import path from "path";
-import { RuleSetRule } from "webpack";
+import { DefinePlugin, RuleSetRule } from "webpack";
 import { WebpackConfiguration } from "webpack-dev-server";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
 import { buildSvgLoader } from "../build/loaders/buildSvgLoader";
@@ -33,6 +33,12 @@ export default ({ config }: { config: WebpackConfiguration }) => {
   });
 
   config.module.rules.push(buildSvgLoader(), buildCssLoader(true, paths));
+
+  config.plugins.push(
+    new DefinePlugin({
+      IS_DEV: true,
+    })
+  );
 
   return config;
 };

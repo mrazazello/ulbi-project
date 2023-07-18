@@ -3,5 +3,7 @@
   "toggle sidebar": "toggle",
   "username": "User name",
   "password": "Password",
-  "log in": "Log in"
+  "log in": "Log in",
+  "log out": "Log out",
+  "Wrong login or password": "Wrong login or password"
 }

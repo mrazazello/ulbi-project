@@ -1,14 +1,21 @@
 import { AppRouter } from "app/providers/router";
 import { useTheme } from "app/providers/themeProvider";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { classNames } from "shared/lib/classNames";
 import { NavBar } from "wigets/navBar";
 import { SideBar } from "wigets/sideBar";
 
+import { userActions } from "entities/user";
+import { useDispatch } from "react-redux";
 import { Preloader } from "shared/ui/Preloader/Preloader";
 
 const App = () => {
   const { theme } = useTheme();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
   return (
     <div className={classNames("app", {}, ["appLayout", theme])}>

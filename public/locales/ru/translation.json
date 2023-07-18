@@ -3,5 +3,7 @@
   "toggle sidebar": "переключить",
   "username": "Имя пользователя",
   "password": "Пароль",
-  "log in": "Войти"
+  "log in": "Войти",
+  "log out": "Выйти",
+  "Wrong login or password": "Неправильный логин или пароль"
 }

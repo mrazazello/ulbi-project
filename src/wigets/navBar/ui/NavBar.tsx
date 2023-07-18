@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
-import { LangSwitcher } from "features/LangSwitcher";
-import { ThemeSwitcher } from "features/ThemeSwitcher";
+import { LangSwitcher } from "wigets/LangSwitcher";
+import { ThemeSwitcher } from "wigets/ThemeSwitcher";
 import { classNames } from "shared/lib/classNames";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button } from "shared/ui/Button/Button";
@@ -14,8 +14,10 @@ import {
   Wallet,
 } from "react-bootstrap-icons";
 
+import { getUserAuthData, userActions } from "entities/user";
 import { LoginModal } from "features/AuthByUsername";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
 import { routePath } from "shared/config/routeConfig/routeConfig";
 import { ButtonThemeEnum } from "shared/ui/Button/Button";
 import cls from "./navBar.module.scss";
@@ -27,10 +29,16 @@ type PropsType = {
 export const NavBar = ({ className }: PropsType) => {
   const [isAuthorize, setAuthorise] = useState(false);
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const authData = useSelector(getUserAuthData);
 
   const toggleAuthorize = useCallback(() => {
     setAuthorise((prev) => !prev);
   }, []);
+
+  const toggleLogout = () => {
+    dispatch(userActions.logout());
+  };
 
   return (
     <nav className={classNames(cls.navBar, {}, [className])}>
@@ -58,9 +66,15 @@ export const NavBar = ({ className }: PropsType) => {
       </div>
       <LangSwitcher />
       <ThemeSwitcher />
-      <Button theme={ButtonThemeEnum.SECONDARY} onClick={toggleAuthorize}>
-        {t("log in")}
-      </Button>
+      {authData?.username ? (
+        <Button theme={ButtonThemeEnum.SECONDARY} onClick={toggleLogout}>
+          {t("log out")}
+        </Button>
+      ) : (
+        <Button theme={ButtonThemeEnum.SECONDARY} onClick={toggleAuthorize}>
+          {t("log in")}
+        </Button>
+      )}
       <LoginModal isOpen={isAuthorize} onClose={() => setAuthorise(false)} />
     </nav>
   );
