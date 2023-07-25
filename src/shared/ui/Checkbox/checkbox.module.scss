@@ -1,0 +1,33 @@
+.checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.icon {
+  position: relative;
+  border: 1px solid rgb(var(--inverted-bg-color));
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+}
+
+.icon::before {
+  position: absolute;
+  display: none;
+  content: "";
+  background-color: rgb(var(--inverted-bg-color));
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkbox input:checked ~ .icon::before {
+  display: block;
+}

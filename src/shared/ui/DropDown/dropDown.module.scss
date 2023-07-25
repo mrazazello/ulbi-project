@@ -1,41 +1,41 @@
 .dropDown {
-    display: inline-block;
-    font: var(--font-m);
+  display: inline-block;
+  font: var(--font-m);
 }
 
 .dropDownContent {
-    background-color: rgb(var(--bg-color));
-    display: none;
-    opacity: 0;
-    position: absolute;
-    min-width: 160px;
-    box-shadow:
-        0 0 #0000,
-        0 10px 15px -3px rgb(0 0 0 / 10%),
-        0 4px 6px -4px rgb(0 0 0 / 10%);
-    border-width: 1px;
-    border-radius: 0.5rem;
-    border-style: solid;
-    border-color: rgb(227 227 227);
-    z-index: 1;
-    transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
+  background-color: rgb(var(--bg-color));
+  display: none;
+  opacity: 0;
+  position: absolute;
+  min-width: 160px;
+  box-shadow:
+    0 0 #0000,
+    0 10px 15px -3px rgb(0 0 0 / 10%),
+    0 4px 6px -4px rgb(0 0 0 / 10%);
+  border-width: 1px;
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-color: rgb(227 227 227);
+  z-index: 1;
+  transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
 
-    li {
-        display: block;
-        color: rgb(var(--primary-color));
-        padding: 0.25rem 1rem;
-        text-decoration: none;
-        cursor: pointer;
-    }
+  li {
+    display: block;
+    color: rgb(var(--primary-color));
+    padding: 0.25rem 1rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-    li:hover {
-        background-color: rgb(var(--inverted-bg-color) / 10%);
-    }
+  li:hover {
+    background-color: rgb(var(--inverted-bg-color) / 10%);
+  }
 }
 
 .open {
-    display: block;
-    opacity: 1;
+  display: block;
+  opacity: 1;
 }
