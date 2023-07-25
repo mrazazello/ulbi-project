@@ -8,21 +8,37 @@ import { Input } from "shared/ui/Input/Input";
 
 import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
 import { Preloader } from "shared/ui/Preloader/Preloader";
-import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
+
+import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
+import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
+import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
+import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { loginUserByName } from "../../model/services/loginByUserName/loginByUserName";
-import { loginActions } from "../../model/slice/loginSlice";
+import { loginActions, loginReducer } from "../../model/slice/loginSlice";
+
+import {
+  DynamicModuleLoader,
+  ReducerListType,
+} from "shared/lib/DynamicModuleLoader";
 import cls from "./loginForm.module.scss";
 
-interface IProps {
+export interface ILoginFormProps {
   className?: string;
 }
 
-export const LoginForm: FC<IProps> = (props: IProps) => {
+const initialReducers: ReducerListType = {
+  loginForm: loginReducer,
+};
+
+const LoginForm: FC<ILoginFormProps> = (props: ILoginFormProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const { username, password, isLoading, error } = useSelector(getLoginState);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
   const handleUserName = useCallback(
     (value: string) => {
@@ -38,41 +54,44 @@ export const LoginForm: FC<IProps> = (props: IProps) => {
     [dispatch]
   );
 
-  const hanleSubmit = useCallback(() => {
+  const handleSubmit = useCallback(() => {
     dispatch(loginUserByName({ username, password }));
   }, [dispatch, username, password]);
 
-  if (isLoading) {
-    return <Preloader />;
-  }
-
   return (
-    <div className={classNames(cls.loginForm, {}, [className])}>
-      {error && <Alert type={AlertTypeEnum.ERROR} message={t(error)} />}
-      <Input
-        autofocus={true}
-        placeholder={t("username")}
-        name="username"
-        className={cls.input}
-        onChange={handleUserName}
-        value={username}
-      />
-      <Input
-        placeholder={t("password")}
-        name="password"
-        className={cls.input}
-        onChange={handleUserPassword}
-        value={password}
-      />
-      <Button
-        theme={ButtonThemeEnum.PRIMARY}
-        disabled={isLoading}
-        onClick={hanleSubmit}
-      >
-        {t("log in")}
-      </Button>
-    </div>
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <div className={classNames(cls.loginForm, {}, [className])}>
+          {error && <Alert type={AlertTypeEnum.ERROR} message={t(error)} />}
+          <Input
+            autofocus={true}
+            placeholder={t("username")}
+            name="username"
+            className={cls.input}
+            onChange={handleUserName}
+            value={username}
+          />
+          <Input
+            placeholder={t("password")}
+            name="password"
+            className={cls.input}
+            onChange={handleUserPassword}
+            value={password}
+          />
+          <Button
+            theme={ButtonThemeEnum.PRIMARY}
+            disabled={isLoading}
+            onClick={handleSubmit}
+          >
+            {t("log in")}
+          </Button>
+        </div>
+      )}
+    </DynamicModuleLoader>
   );
 };
-
 // LoginForm.displayName = "LoginForm";
+
+export default LoginForm;

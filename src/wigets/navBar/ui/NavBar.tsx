@@ -1,10 +1,10 @@
 import { useCallback, useState } from "react";
 
-import { LangSwitcher } from "wigets/LangSwitcher";
-import { ThemeSwitcher } from "wigets/ThemeSwitcher";
 import { classNames } from "shared/lib/classNames";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button } from "shared/ui/Button/Button";
+import { LangSwitcher } from "wigets/LangSwitcher";
+import { ThemeSwitcher } from "wigets/ThemeSwitcher";
 
 import {
   BarChart,
@@ -75,7 +75,9 @@ export const NavBar = ({ className }: PropsType) => {
           {t("log in")}
         </Button>
       )}
-      <LoginModal isOpen={isAuthorize} onClose={() => setAuthorise(false)} />
+      {isAuthorize && (
+        <LoginModal isOpen={isAuthorize} onClose={() => setAuthorise(false)} />
+      )}
     </nav>
   );
 };

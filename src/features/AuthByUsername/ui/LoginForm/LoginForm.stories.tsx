@@ -4,7 +4,7 @@ import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
 import { storeDecorator } from "shared/config/storybook/styleDecorator/storeDecorator";
-import { LoginForm } from "./LoginForm";
+import LoginForm from "./LoginForm";
 
 export default {
   title: "features/LoginForm",
@@ -34,6 +34,19 @@ Dark.args = {};
 Dark.decorators = [
   themeDecorator(ThemeEnum.DARK),
   storeDecorator(initialStore),
+];
+
+export const WithError = Template.bind({});
+WithError.args = {};
+WithError.decorators = [
+  storeDecorator({
+    loginForm: {
+      username: "aza",
+      password: "111",
+      isLoading: false,
+      error: "Test error",
+    },
+  }),
 ];
 
 export const Loading = Template.bind({});

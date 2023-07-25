@@ -4,6 +4,11 @@
     "editor.formatOnSave": false
   },
 
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
   "editor.autoClosingBrackets": "languageDefined",
   "editor.autoClosingDelete": "auto",
   "editor.autoClosingOvertype": "auto",
@@ -71,5 +76,5 @@
   "files.trimTrailingWhitespace": true,
 
   // TabNine
-  "tabnine.experimentalAutoImports": true,
+  "tabnine.experimentalAutoImports": true
 }
