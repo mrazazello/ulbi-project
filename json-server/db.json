@@ -1,12 +1,6 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "aza" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" },
-    "users": [
-      { "id": 1, "username": "aza", "password": "test" }
-    ]
-  }
+  "posts": [{ "id": "1", "title": "json-server", "author": "aza" }],
+  "comments": [{ "id": "1", "body": "some comment", "postId": 1 }],
+  "profile": { "name": "typicode" },
+  "users": [{ "id": "1", "username": "aza", "password": "test" }]
+}

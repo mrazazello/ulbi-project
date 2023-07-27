@@ -1,20 +1,31 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { classNames } from "shared/lib/classNames";
 import cls from "./checkbox.module.scss";
 
 interface IProps {
   className?: string;
-  name: string;
   placeholder: string;
+  name: string;
   value?: string;
-  onChange?: (value: string) => void;
+  checked?: boolean;
+  onChange?: (value: boolean) => void;
 }
 
 export const Checkbox: FC<IProps> = (props) => {
-  const { className, name, value, placeholder, onChange } = props;
+  const {
+    className,
+    name,
+    value,
+    placeholder,
+    checked = false,
+    onChange,
+  } = props;
+
+  const [isChecked, setChecked] = useState(checked);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value);
+    setChecked(!isChecked);
+    onChange?.(e.target.checked);
   };
 
   return (
@@ -24,6 +35,7 @@ export const Checkbox: FC<IProps> = (props) => {
           type="checkbox"
           name={name}
           value={value}
+          checked={isChecked}
           onChange={onChangeHandler}
         />
         <div className={cls.icon} />

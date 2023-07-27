@@ -19,7 +19,7 @@ export const loginUserByName = createAsyncThunk<
     const response = await axios.post<IUser>(loginURL, authData);
 
     if (!response.data) {
-      throw new Error();
+      throw new Error("Thunk error");
     }
 
     localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
