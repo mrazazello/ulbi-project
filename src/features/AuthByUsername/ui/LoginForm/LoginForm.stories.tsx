@@ -4,7 +4,7 @@ import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
 import { storeDecorator } from "shared/config/storybook/styleDecorator/storeDecorator";
-import LoginForm from "./LoginForm";
+import { LoginFormWithoutMemo as LoginForm } from "./LoginForm";
 
 export default {
   title: "features/LoginForm",

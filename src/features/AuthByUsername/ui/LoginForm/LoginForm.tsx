@@ -1,6 +1,6 @@
-import { FC, useCallback } from "react";
+import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { classNames } from "shared/lib/classNames";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
@@ -20,20 +20,22 @@ import {
   DynamicModuleLoader,
   ReducerListType,
 } from "shared/lib/DynamicModuleLoader";
+import { useAppDispatch } from "shared/lib/useAppDispatch";
 import cls from "./loginForm.module.scss";
 
 export interface ILoginFormProps {
   className?: string;
+  onSuccess?: () => void;
 }
 
 const initialReducers: ReducerListType = {
   loginForm: loginReducer,
 };
 
-const LoginForm: FC<ILoginFormProps> = (props: ILoginFormProps) => {
-  const { className } = props;
+const LoginFormComponent: FC<ILoginFormProps> = (props: ILoginFormProps) => {
+  const { className, onSuccess } = props;
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -54,9 +56,14 @@ const LoginForm: FC<ILoginFormProps> = (props: ILoginFormProps) => {
     [dispatch]
   );
 
-  const handleSubmit = useCallback(() => {
-    dispatch(loginUserByName({ username, password }));
-  }, [dispatch, username, password]);
+  const handleSubmit = useCallback(async () => {
+    const res = await dispatch(
+      loginUserByName({ username, password })
+    ).unwrap();
+    if (res.username && onSuccess) {
+      onSuccess();
+    }
+  }, [dispatch, username, password, onSuccess]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
@@ -94,4 +101,5 @@ const LoginForm: FC<ILoginFormProps> = (props: ILoginFormProps) => {
 };
 // LoginForm.displayName = "LoginForm";
 
-export default LoginForm;
+export default memo(LoginFormComponent);
+export const LoginFormWithoutMemo = LoginFormComponent;

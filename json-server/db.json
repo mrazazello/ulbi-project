@@ -1,6 +1,15 @@
 {
   "posts": [{ "id": "1", "title": "json-server", "author": "aza" }],
   "comments": [{ "id": "1", "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" },
+  "profile": {
+    "firstName": "typicode",
+    "lastName": "Programerov",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russia",
+    "city:": "Petrozavodsk",
+    "username": "aza",
+    "avatar": ""
+  },
   "users": [{ "id": "1", "username": "aza", "password": "test" }]
 }

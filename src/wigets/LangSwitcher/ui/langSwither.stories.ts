@@ -3,7 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
-import { LangSwitcher } from "./LangSwitcher";
+import { i18nextDecorator } from "shared/config/storybook/styleDecorator/i18nextDecorator";
+import { LangSwitcherWithoutMemo as LangSwitcher } from "./LangSwitcher";
 
 const meta = {
   title: "wigets/LangSwitcher",
@@ -20,5 +21,5 @@ export const Light: Story = {
 
 export const Dark: Story = {
   args: {},
-  decorators: [themeDecorator(ThemeEnum.DARK)],
+  decorators: [themeDecorator(ThemeEnum.DARK), i18nextDecorator],
 };

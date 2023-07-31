@@ -4,7 +4,8 @@ import {
   StateSchemaKeyType,
 } from "app/providers/storeProvider/config/stateSchema";
 import { FC, useEffect } from "react";
-import { useDispatch, useStore } from "react-redux";
+import { useStore } from "react-redux";
+import { useAppDispatch } from "./useAppDispatch";
 
 export type ReducerListType = {
   [name in StateSchemaKeyType]?: Reducer;
@@ -19,7 +20,7 @@ interface IProps {
 
 export const DynamicModuleLoader: FC<IProps> = (props) => {
   const { children, reducers, removeAfterUnmount = false } = props;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const store = useStore() as IReduxStoreWithManager;
 
   useEffect(() => {

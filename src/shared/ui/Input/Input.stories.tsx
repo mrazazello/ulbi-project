@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
-import { Input } from "./Input";
+import { InputWithoutMemo as Input } from "./Input";
 
 export default {
   title: "shared/Input",

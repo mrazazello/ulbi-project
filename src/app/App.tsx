@@ -6,12 +6,12 @@ import { NavBar } from "wigets/navBar";
 import { SideBar } from "wigets/sideBar";
 
 import { userActions } from "entities/user";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "shared/lib/useAppDispatch";
 import { Preloader } from "shared/ui/Preloader/Preloader";
 
 const App = () => {
   const { theme } = useTheme();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(userActions.initAuthData());

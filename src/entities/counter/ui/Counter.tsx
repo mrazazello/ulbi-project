@@ -1,12 +1,13 @@
 import { FC } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "shared/lib/useAppDispatch";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
 import { getCounterValue } from "../model/selectors/getCounterValue/getCounterValue";
 import { counterActions } from "../model/slice/counterSlice";
 
 export const Counter: FC = () => {
   const counter = useSelector(getCounterValue);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const incrementHandler = () => {
     dispatch(counterActions.increment());

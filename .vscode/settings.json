@@ -24,7 +24,7 @@
   },
   "editor.codeLens": true,
   "editor.cursorBlinking": "smooth",
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.detectIndentation": true,
   "editor.folding": true,
   "editor.foldingStrategy": "auto",

@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
-import { Button, ButtonThemeEnum } from "./Button";
+import { ButtonWithoutMemo as Button, ButtonThemeEnum } from "./Button";
 
 export default {
   title: "shared/Button",

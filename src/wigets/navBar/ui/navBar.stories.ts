@@ -4,7 +4,7 @@ import { ThemeEnum } from "app/providers/themeProvider";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 
 import { storeDecorator } from "shared/config/storybook/styleDecorator/storeDecorator";
-import { NavBar } from "./NavBar";
+import { NavBarWithoutMemo as NavBar } from "./NavBar";
 
 export default {
   title: "wigets/NavBar",

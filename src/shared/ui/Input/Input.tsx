@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, useEffect, useRef } from "react";
+import { FC, InputHTMLAttributes, memo, useEffect, useRef } from "react";
 
 import { classNames } from "shared/lib/classNames";
 import cls from "./input.module.scss";
@@ -22,7 +22,7 @@ interface IProps extends HTMLInputPropsType {
   onChange?: (value: string) => void;
 }
 
-export const Input: FC<IProps> = (props: IProps) => {
+const InputComponent: FC<IProps> = (props) => {
   const {
     autofocus = false,
     placeholder,
@@ -61,4 +61,5 @@ export const Input: FC<IProps> = (props: IProps) => {
   );
 };
 
-// Input.displayName = "Input";
+export const Input = memo(InputComponent);
+export const InputWithoutMemo = InputComponent;
