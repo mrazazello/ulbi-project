@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Button } from "shared/ui/Button/Button";
 import { Modal } from "shared/ui/Modal/Modal";
 
-const AboutPage = () => {
-  const { t } = useTranslation("about");
+const FavoritesPage = () => {
+  const { t } = useTranslation("favorites");
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -27,4 +27,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default FavoritesPage;

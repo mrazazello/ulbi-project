@@ -1,5 +1,6 @@
 .sideBar {
   width: var(--side-bar-width);
+  min-width: var(--side-bar-width);
   height: calc(100vh - var(--navbar-height));
   color: rgb(var(--inverted-primary-color));
   background-color: rgb(var(--inverted-bg-color));
@@ -12,6 +13,7 @@
 
 .collapsed {
   width: var(--side-bar-width-collapsed);
+  min-width: var(--side-bar-width-collapsed);
 }
 
 .centered {

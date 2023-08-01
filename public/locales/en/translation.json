@@ -5,5 +5,12 @@
   "password": "Password",
   "log in": "Log in",
   "log out": "Log out",
-  "Wrong login or password": "Wrong login or password"
+  "Wrong login or password": "Wrong login or password",
+  "Start": "Start",
+  "Favorites": "Favorites",
+  "Progress": "Progress",
+  "Orders": "Orders",
+  "More": "More",
+  "Login": "Login",
+  "Profile": "Profile"
 }

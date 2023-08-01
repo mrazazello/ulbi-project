@@ -9,8 +9,8 @@ export interface ISideBarItem {
 
 export const sideBarMenu: ISideBarItem[] = [
   {
-    text: "Main menu 1",
-    url: routePath.main,
+    text: "Login",
+    url: routePath.login,
     Icon: PlayBtn,
   },
   {

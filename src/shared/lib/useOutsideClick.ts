@@ -6,7 +6,7 @@ export function useOutsideClick(
   callback: () => void
 ) {
   useEffect(() => {
-    console.log("otside Effect");
+    // console.log("otside Effect");
     function handleClickOutside(event: MouseEvent) {
       if (
         event &&

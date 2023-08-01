@@ -21,22 +21,22 @@ export const navBarItems: INavBarItem[] = [
     Icon: PlayBtn,
   },
   {
-    url: routePath.about,
-    text: "About",
+    url: routePath.favorites,
+    text: "Favorites",
     Icon: Heart,
   },
   {
-    url: routePath.login,
-    text: "Login",
+    url: routePath.progress,
+    text: "Progress",
     Icon: BarChart,
   },
   {
-    url: routePath.about,
+    url: routePath.orders,
     text: "Orders",
     Icon: Wallet,
   },
   {
-    url: routePath.about,
+    url: routePath.more,
     text: "More",
     Icon: ThreeDots,
   },

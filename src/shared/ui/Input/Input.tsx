@@ -22,7 +22,7 @@ interface IProps extends HTMLInputPropsType {
   onChange?: (value: string) => void;
 }
 
-const InputComponent: FC<IProps> = (props) => {
+export const InputComponent: FC<IProps> = (props: IProps) => {
   const {
     autofocus = false,
     placeholder,
@@ -60,6 +60,8 @@ const InputComponent: FC<IProps> = (props) => {
     </div>
   );
 };
+
+InputComponent.displayName = "Input";
 
 export const Input = memo(InputComponent);
 export const InputWithoutMemo = InputComponent;
