@@ -12,13 +12,13 @@ import "shared/config/i18n/i18n";
 
 render(
   <BrowserRouter>
-    <ErrorBoundary>
-      <ThemeProvaider>
-        <StoreProvider>
+    <StoreProvider>
+      <ErrorBoundary>
+        <ThemeProvaider>
           <App />
-        </StoreProvider>
-      </ThemeProvaider>
-    </ErrorBoundary>
+        </ThemeProvaider>
+      </ErrorBoundary>
+    </StoreProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );

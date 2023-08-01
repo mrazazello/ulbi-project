@@ -37,6 +37,7 @@ export default ({ config }: { config: WebpackConfiguration }) => {
   config.plugins.push(
     new DefinePlugin({
       IS_DEV: true,
+      API_URL: JSON.stringify(""),
     })
   );
 

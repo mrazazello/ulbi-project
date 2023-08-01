@@ -19,11 +19,13 @@ export default (env: IBuildEnv): webpack.Configuration => {
   const mode: BuildModeType = env.mode || "development";
   const isDev = mode === "development";
   const PORT = env.port || 9000;
+  const apiURL = env.apiURL || "http://localhost:8000";
 
   return buildWebpackConfig({
     mode,
     paths,
     isDev,
     port: PORT,
+    apiURL,
   });
 };

@@ -5,10 +5,12 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
+import { AxiosInstance } from "axios";
 import { ICounterSchema } from "entities/counter";
 import { IProfileSchema } from "entities/profile";
 import { IUserSchema } from "entities/user";
 import { ILoginSchema } from "features/AuthByUsername/model/types/loginSchema";
+import { NavigateFunction } from "react-router-dom";
 
 export interface IStateSchema {
   counter: ICounterSchema;
@@ -29,6 +31,15 @@ export interface IReducerManager {
   remove: (key: StateSchemaKeyType) => void;
 }
 
+export interface IThunkExtraArg {
+  api: AxiosInstance;
+  navigate?: NavigateFunction;
+}
+
+export interface IThunkConfig<T> {
+  rejectValue: T;
+  extra: IThunkExtraArg;
+}
 export interface IReduxStoreWithManager extends ToolkitStore<IStateSchema> {
   reducerManager: IReducerManager;
 }

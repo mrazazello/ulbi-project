@@ -1,14 +1,23 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
-  extends: ["plugin:react/recommended", "airbnb-typescript", "prettier", "plugin:storybook/recommended"],
+  extends: [
+    "plugin:react/recommended",
+    "airbnb-typescript",
+    "prettier",
+    "plugin:storybook/recommended",
+  ],
+  globals: {
+    IS_DEV: true,
+    API_URL: true,
+  },
   overrides: [],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: ["./tsconfig.json"]
+    project: ["./tsconfig.json"],
   },
   ignorePatterns: [".eslintrc.*", "./json-server/*.js"],
   plugins: ["import", "react", "prettier", "react-hooks"],
@@ -20,11 +29,11 @@ module.exports = {
     "react/jsx-props-no-spreading": "warn",
     "react/function-component-definition": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "error"
+    "react-hooks/exhaustive-deps": "error",
   },
   settings: {
-    react:{
+    react: {
       version: "detect",
-    }
-  }
+    },
+  },
 };
