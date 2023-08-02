@@ -1,4 +1,5 @@
 import { profileReducer } from "entities/profile";
+import { ProfileCard } from "entities/user";
 import { useTranslation } from "react-i18next";
 import {
   DynamicModuleLoader,
@@ -16,7 +17,9 @@ const ProfilePage = () => {
     <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
       <div>
         <h1>{t("page title")}</h1>
-        <div></div>
+        <div>
+          <ProfileCard />
+        </div>
       </div>
     </DynamicModuleLoader>
   );

@@ -16,30 +16,39 @@ export default ({ config }: { config: WebpackConfiguration }) => {
     src: path.resolve(__dirname, "..", "..", "src"),
   };
 
-  config.resolve.modules.push(paths.src);
-  config.resolve.extensions.push(".ts", ".tsx");
+  config.resolve?.modules?.push(paths.src);
+  config.resolve?.extensions?.push(".ts", ".tsx");
 
   // нужно (падает storybook) так как entities конфликтует с такой же папкой в node_modules
-  config.resolve.alias = {
-    entities: path.resolve(__dirname, "..", "..", "src", "entities"),
-  };
+  if (config.resolve?.alias) {
+    config.resolve.alias = {
+      entities: path.resolve(__dirname, "..", "..", "src", "entities"),
+    };
+  }
 
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-    if (/svg/.test(rule.test as string)) {
-      return { ...rule, exclude: /\.svg$/i };
-    }
+  if (config?.module?.rules) {
+    // @ts-ignore
+    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+      if (/svg/.test(rule.test as string)) {
+        return { ...rule, exclude: /\.svg$/i };
+      }
 
-    return rule;
-  });
+      return rule;
+    });
+  }
 
-  config.module.rules.push(buildSvgLoader(), buildCssLoader(true, paths));
+  if (config?.module?.rules) {
+    config.module.rules.push(buildSvgLoader(), buildCssLoader(true, paths));
+  }
 
-  config.plugins.push(
-    new DefinePlugin({
-      IS_DEV: true,
-      API_URL: JSON.stringify(""),
-    })
-  );
+  if (config?.plugins) {
+    config.plugins.push(
+      new DefinePlugin({
+        IS_DEV: true,
+        API_URL: JSON.stringify(""),
+      })
+    );
+  }
 
   return config;
 };

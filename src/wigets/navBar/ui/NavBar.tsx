@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useState } from "react";
+import { memo, useCallback, useState } from "react";
 
 import { classNames } from "shared/lib/classNames";
 import { LangSwitcher } from "wigets/LangSwitcher";
@@ -18,7 +18,7 @@ type PropsType = {
   className?: string;
 };
 
-const NavBarComponent: FC<PropsType> = ({ className }: PropsType) => {
+const NavBarComponent = ({ className }: PropsType) => {
   const [isAuthorize, setAuthorise] = useState(false);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();

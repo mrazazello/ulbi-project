@@ -27,7 +27,8 @@ export function createReduxStore(
   };
 
   const store = configureStore({
-    reducer: reducerManager.reduce,
+    // @ts-ignore
+    reducer: reducerManager.reduce as ReducersMapObject<IStateSchema>,
     preloadedState: initialState,
     devTools: IS_DEV,
     middleware: (getDefaultMiddleware) =>

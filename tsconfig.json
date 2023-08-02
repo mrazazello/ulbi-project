@@ -6,6 +6,7 @@
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
+    "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -24,6 +25,6 @@
     "./config/**/*.ts",
     "./config/**/*.tsx",
     "./src/**/*.ts",
-    "./src/**/*.tsx",
-  ],
+    "./src/**/*.tsx"
+  ]
 }

@@ -3,16 +3,13 @@ type ModsType = Record<string, boolean>;
 export const classNames = (
   className: string,
   mods: ModsType = {},
-  addons: string[] = []
+  addons: Array<string | undefined> = []
 ): string => {
-  const res: string[] = [className];
-  if (mods !== undefined)
-    res.push(
-      ...Object.keys(mods)
-        .filter((el) => mods[el] === true)
-        .map((el) => el)
-    );
-  if (addons !== undefined) res.push(...addons.filter(Boolean));
-
-  return res.join(" ");
+  return [
+    className,
+    ...Object.keys(mods)
+      .filter((el) => mods[el] === true)
+      .map((el) => el),
+    ...addons.filter(Boolean),
+  ].join(" ");
 };

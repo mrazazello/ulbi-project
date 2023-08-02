@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { classNames } from "shared/lib/classNames";
 import { Button } from "shared/ui/Button/Button";
 
@@ -12,7 +12,7 @@ interface IProps {
   className?: string;
 }
 
-export const SideBar: FC<IProps> = (props) => {
+export const SideBar = (props: IProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const { className } = props;
 

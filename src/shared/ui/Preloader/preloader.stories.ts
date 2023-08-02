@@ -8,18 +8,18 @@ import { Preloader } from "./Preloader";
 export default {
   title: "shared/Preloader",
   component: Preloader,
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
   argTypes: {},
   args: {
-    text: "Loading something",
+    text: "Test",
   },
 } as ComponentMeta<typeof Preloader>;
 
 const Template: ComponentStory<typeof Preloader> = (args) =>
   Preloader({ ...args });
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const Light = Template.bind({});
+Light.args = {};
 
 export const Dark = Template.bind({});
 Dark.args = {};

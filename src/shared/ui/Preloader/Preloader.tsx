@@ -1,11 +1,10 @@
-import { FC } from "react";
 import cls from "./preloader.module.scss";
 
 interface IProps {
   text?: string;
 }
 
-export const Preloader: FC<IProps> = (props) => {
+const PreloaderComponent = (props: IProps) => {
   const { text } = props;
 
   return (
@@ -20,3 +19,5 @@ export const Preloader: FC<IProps> = (props) => {
     </div>
   );
 };
+
+export const Preloader = PreloaderComponent;

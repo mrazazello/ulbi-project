@@ -11,11 +11,14 @@ export default {
   component: LoginForm,
   tags: ["autodocs"],
   argTypes: {},
-  args: {},
+  args: {
+    onSuccess: () => null,
+  },
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) =>
-  LoginForm({ ...args });
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+  <LoginForm {...args} />
+);
 
 const initialStore = {
   loginForm: {
@@ -51,4 +54,8 @@ WithError.decorators = [
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [storeDecorator({ loginForm: { isLoading: true } })];
+Loading.decorators = [
+  storeDecorator({
+    loginForm: { isLoading: true, username: "", password: "" },
+  }),
+];

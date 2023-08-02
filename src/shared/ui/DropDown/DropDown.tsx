@@ -1,5 +1,5 @@
 import { autoUpdate, flip, shift, useFloating } from "@floating-ui/react-dom";
-import { FC, ReactNode, useRef, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { classNames } from "shared/lib/classNames";
 import { useOutsideClick } from "shared/lib/useOutsideClick";
 
@@ -13,12 +13,13 @@ export interface IDropDownMenuItem {
 interface IProps {
   className?: string;
   menuItems: IDropDownMenuItem[];
+  children: ReactNode;
 }
 
-export const DropDown: FC<IProps> = (props) => {
+export const DropDown = (props: IProps) => {
   const { className, menuItems, children } = props;
   const [isOpen, setOpen] = useState(false);
-  const dropDonwRef = useRef<HTMLDivElement>();
+  const dropDonwRef = useRef<HTMLDivElement>(null);
   const { refs, floatingStyles } = useFloating<HTMLButtonElement>({
     placement: "bottom-start",
     middleware: [flip(), shift()],
