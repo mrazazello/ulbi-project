@@ -1,34 +1,32 @@
-import axios from "axios";
 import { userActions } from "entities/user";
 import { TestAsyncThunk } from "shared/config/tests/TestAsyncThunk";
 import { loginUserByName } from "./loginByUserName";
 
 jest.mock("axios");
-const mockedAxios = jest.mocked(axios, { shallow: false });
 
 describe("LoginByUserName async Thunk test", () => {
   test("success login", async () => {
     const userData = { username: "123", id: "1" };
-    mockedAxios.post.mockResolvedValue(Promise.resolve({ data: userData }));
     const thunk = new TestAsyncThunk(loginUserByName);
+    thunk.api.post.mockResolvedValue(Promise.resolve({ data: userData }));
     const result = await thunk.callThunk({ username: "aza", password: "test" });
 
     expect(thunk.dispatch).toHaveBeenCalledWith(
       userActions.setAuthData(userData)
     );
-    expect(mockedAxios.post).toHaveBeenCalled();
+    expect(thunk.api.post).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(result.meta.requestStatus).toBe("fulfilled");
     expect(result.payload).toEqual(userData);
   });
 
   test("error  login", async () => {
-    mockedAxios.post.mockResolvedValue(Promise.resolve({ status: 403 }));
     const thunk = new TestAsyncThunk(loginUserByName);
+    thunk.api.post.mockResolvedValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk({ username: "aza", password: "test" });
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-    expect(mockedAxios.post).toHaveBeenCalled();
+    expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("rejected");
     expect(result.payload).toBe("Wrong login or password");
   });
