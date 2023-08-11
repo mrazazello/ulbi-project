@@ -1,0 +1,12 @@
+.profileCard {
+  padding: 10px;
+  border: 1px solid rgb(var(--form-border-color));
+  border-radius: 5px;
+  background-color: rgb(var(--form-bg-color));
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

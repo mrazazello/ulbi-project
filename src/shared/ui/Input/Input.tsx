@@ -10,7 +10,7 @@ export enum InputSizeEnum {
 }
 type HTMLInputPropsType = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "onChange" | "value"
+  "onChange" | "value" | "readOnly"
 >;
 interface IProps extends HTMLInputPropsType {
   autofocus?: boolean;
@@ -18,8 +18,9 @@ interface IProps extends HTMLInputPropsType {
   className?: string;
   name: string;
   theme?: InputSizeEnum;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
+  readonly?: boolean;
 }
 
 export const InputComponent: FC<IProps> = (props: IProps) => {
@@ -31,6 +32,7 @@ export const InputComponent: FC<IProps> = (props: IProps) => {
     theme = InputSizeEnum.REGULAR,
     value,
     onChange,
+    readonly = false,
     ...otherProps
   } = props;
 
@@ -50,10 +52,14 @@ export const InputComponent: FC<IProps> = (props: IProps) => {
     <div className={cls.inputWrapper}>
       {placeholder && <div className={cls.placeholder}>{placeholder}</div>}
       <input
-        className={classNames(cls.input, {}, [className, cls[theme]])}
+        className={classNames(cls.input, { [cls.readonly]: readonly }, [
+          className,
+          cls[theme],
+        ])}
         name={name}
         value={value}
         onChange={onChangeHandler}
+        readOnly={readonly}
         {...otherProps}
         ref={inputRef}
       />

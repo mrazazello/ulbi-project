@@ -1,15 +1,34 @@
 {
-  "posts": [{ "id": "1", "title": "json-server", "author": "aza" }],
-  "comments": [{ "id": "1", "body": "some comment", "postId": 1 }],
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "aza"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
   "profile": {
-    "firstName": "typicode",
-    "lastName": "Programerov",
-    "age": 22,
+    "firstName": "Ivan3",
+    "lastName": "Programerov3",
+    "age": 2233,
     "currency": "RUB",
     "country": "Russia",
     "city:": "Petrozavodsk",
-    "username": "aza",
-    "avatar": ""
+    "username": "aza22",
+    "avatar": "https://cdn0.iconfinder.com/data/icons/occupation-002/64/programmer-programming-occupation-avatar-512.png",
+    "city": "asfdsfds"
   },
-  "users": [{ "id": "1", "username": "aza", "password": "test" }]
+  "users": [
+    {
+      "id": "1",
+      "username": "aza",
+      "password": "test"
+    }
+  ]
 }

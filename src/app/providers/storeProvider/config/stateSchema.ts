@@ -39,6 +39,7 @@ export interface IThunkExtraArg {
 export interface IThunkConfig<T> {
   rejectValue: T;
   extra: IThunkExtraArg;
+  state: IStateSchema;
 }
 export interface IReduxStoreWithManager extends ToolkitStore<IStateSchema> {
   reducerManager: IReducerManager;

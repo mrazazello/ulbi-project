@@ -1,11 +1,22 @@
 import { getProfileData } from "./model/selectors/getProfileData/getProfileData";
-import { getProfileError } from "./model/selectors/getProfileData/getProfileError/getProfileError";
-import { getProfileIsLoading } from "./model/selectors/getProfileData/getProfileIsLoading/getProfileIsLoading";
+import { getProfileError } from "./model/selectors/getProfileError/getProfileError";
+import { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm";
+import { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getProfileIsLoading";
+import { getProfileReadonly } from "./model/selectors/getProfileReadonly/getProfileReadonly";
 import { fetchProfileData } from "./model/services/fetchProfileData/fetchProfileData";
+import { updateProfileData } from "./model/services/updateProfileData/updateProfileData";
 import { profileActions, profileReducer } from "./model/slice/profileSlice";
 import { IProfile, IProfileSchema } from "./model/types/profile";
+import { ProfileCard } from "./ui/ProfileCard/ProfileCard";
 
 export { IProfile, IProfileSchema };
 export { profileActions, profileReducer };
-export { getProfileData, getProfileError, getProfileIsLoading };
-export { fetchProfileData };
+export {
+  getProfileData,
+  getProfileForm,
+  getProfileError,
+  getProfileIsLoading,
+  getProfileReadonly,
+};
+export { fetchProfileData, updateProfileData };
+export { ProfileCard };
