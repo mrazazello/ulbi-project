@@ -9,6 +9,10 @@ import { OrdersPage } from "pages/ordersPage";
 import { ProfilePage } from "pages/profilePage";
 import { ProgressPage } from "pages/progressPage";
 
+type AppRouteProps = RouteProps & {
+  authOnly?: boolean;
+};
+
 export enum AppRoutesEnum {
   MAIN = "main",
   FAVORITES = "favorites",
@@ -34,7 +38,7 @@ export const routePath: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.NOT_FOUND]: "*",
 };
 
-export const routeConfig: Record<AppRoutesEnum, RouteProps> = {
+export const routeConfig: Record<AppRoutesEnum, AppRouteProps> = {
   [AppRoutesEnum.MAIN]: {
     path: routePath.main,
     element: <MainPage />,
@@ -63,6 +67,7 @@ export const routeConfig: Record<AppRoutesEnum, RouteProps> = {
   [AppRoutesEnum.PROFILE]: {
     path: routePath.profile,
     element: <ProfilePage />,
+    authOnly: true,
   },
   [AppRoutesEnum.NOT_FOUND]: {
     path: routePath.not_found,

@@ -10,3 +10,7 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.editMode {
+  border: 1px solid rgb(var(--warning-color));
+}

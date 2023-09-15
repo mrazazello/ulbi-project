@@ -1,12 +1,15 @@
-import { getProfileReadonly } from "entities/profile/model/selectors/getProfileReadonly/getProfileReadonly";
 import { FC } from "react";
-import { useSelector } from "react-redux";
+
 import { classNames } from "shared/lib/classNames";
 import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Input } from "shared/ui/Input/Input";
 import { Preloader } from "shared/ui/Preloader/Preloader";
+
 import { IProfile } from "../../model/types/profile";
+
+import { CountryEnum, CountrySelect } from "entities/country";
+import { CurrencyEnum, CurrencySelect } from "entities/currency";
 import cls from "./profileCard.module.scss";
 
 interface IProps {
@@ -14,12 +17,15 @@ interface IProps {
   data?: IProfile;
   isLoading?: boolean;
   error?: string;
+  readonly?: boolean;
   onChangeFirstName?: (value: string) => void;
   onChangeLastName?: (value: string) => void;
   onChangeAge?: (value: string) => void;
   onChangeCity?: (value: string) => void;
   onChangeUsername?: (value: string) => void;
   onChangeAvatar?: (value: string) => void;
+  onChangeCurrency?: (value: CurrencyEnum) => void;
+  onChangeCountry?: (value: CountryEnum) => void;
 }
 
 export const ProfileCard: FC<IProps> = (props) => {
@@ -28,23 +34,31 @@ export const ProfileCard: FC<IProps> = (props) => {
     data,
     isLoading,
     error,
+    readonly = false,
     onChangeFirstName,
     onChangeLastName,
     onChangeAge,
     onChangeCity,
     onChangeUsername,
     onChangeAvatar,
+    onChangeCurrency,
+    onChangeCountry,
   } = props;
 
-  const readonly = useSelector(getProfileReadonly);
+  const mods = {
+    [cls.editMode]: !readonly,
+  };
+
+  if (error) {
+    return <Alert message={error} type={AlertTypeEnum.ERROR} />;
+  }
 
   return (
-    <div className={classNames(cls.profileCard, {}, [className])}>
+    <div className={classNames(cls.profileCard, mods, [className])}>
       {isLoading ? (
         <Preloader text="loading profile" />
       ) : (
         <>
-          {error && <Alert message={error} type={AlertTypeEnum.ERROR} />}
           <div className={classNames(cls.form)}>
             {data?.avatar && <Avatar src={data?.avatar} alt="avatar" />}
             <Input
@@ -67,6 +81,16 @@ export const ProfileCard: FC<IProps> = (props) => {
               value={data?.age}
               readonly={readonly}
               onChange={onChangeAge}
+            />
+            <CountrySelect
+              value={data?.country}
+              onChange={onChangeCountry}
+              readonly={readonly}
+            />
+            <CurrencySelect
+              value={data?.currency}
+              onChange={onChangeCurrency}
+              readonly={readonly}
             />
             <Input
               placeholder="City"

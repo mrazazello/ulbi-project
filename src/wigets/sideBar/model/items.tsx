@@ -5,6 +5,7 @@ export interface ISideBarItem {
   url: string;
   text: string;
   Icon: Icon;
+  authOnly?: boolean;
 }
 
 export const sideBarMenu: ISideBarItem[] = [
@@ -17,5 +18,6 @@ export const sideBarMenu: ISideBarItem[] = [
     text: "Profile",
     url: routePath.profile,
     Icon: PlayBtn,
+    authOnly: true,
   },
 ];

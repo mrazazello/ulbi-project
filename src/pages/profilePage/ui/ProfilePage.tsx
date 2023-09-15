@@ -1,9 +1,12 @@
+import { CountryEnum } from "entities/country";
+import { CurrencyEnum } from "entities/currency";
 import {
   ProfileCard,
   fetchProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
+  getProfileReadonly,
   profileActions,
   profileReducer,
 } from "entities/profile";
@@ -30,6 +33,7 @@ const ProfilePage = () => {
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
+  const readonly = useSelector(getProfileReadonly);
 
   const onChangeFirstName = useCallback(
     (value: string) => {
@@ -73,6 +77,20 @@ const ProfilePage = () => {
     [dispatch]
   );
 
+  const onChangeCurrency = useCallback(
+    (value: CurrencyEnum) => {
+      dispatch(profileActions.updateProfileData({ currency: value }));
+    },
+    [dispatch]
+  );
+
+  const onChangeCountry = useCallback(
+    (value: CountryEnum) => {
+      dispatch(profileActions.updateProfileData({ country: value }));
+    },
+    [dispatch]
+  );
+
   return (
     <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
       <div>
@@ -81,12 +99,15 @@ const ProfilePage = () => {
           data={formData}
           isLoading={isLoading}
           error={error}
+          readonly={readonly}
           onChangeFirstName={onChangeFirstName}
           onChangeLastName={onChangeLastName}
           onChangeAge={onChangeAge}
           onChangeCity={onChangeCity}
           onChangeUsername={onChangeUsername}
           onChangeAvatar={onChangeAvatar}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
         />
       </div>
     </DynamicModuleLoader>
