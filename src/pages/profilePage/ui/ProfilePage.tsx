@@ -7,6 +7,7 @@ import {
   getProfileForm,
   getProfileIsLoading,
   getProfileReadonly,
+  getProfileValidateErrors,
   profileActions,
   profileReducer,
 } from "entities/profile";
@@ -17,6 +18,7 @@ import {
   ReducerListType,
 } from "shared/lib/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/useAppDispatch";
+import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
 const reducersList: ReducerListType = {
@@ -33,6 +35,7 @@ const ProfilePage = () => {
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
+  const validateErrors = useSelector(getProfileValidateErrors);
   const readonly = useSelector(getProfileReadonly);
 
   const onChangeFirstName = useCallback(
@@ -95,6 +98,10 @@ const ProfilePage = () => {
     <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
       <div>
         <ProfilePageHeader />
+        {validateErrors?.length &&
+          validateErrors.map((item) => (
+            <Alert key={item} message={item} type={AlertTypeEnum.ERROR} />
+          ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}

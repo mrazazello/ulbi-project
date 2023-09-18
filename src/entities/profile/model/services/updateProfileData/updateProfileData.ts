@@ -1,16 +1,23 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IThunkConfig } from "app/providers/storeProvider";
 import { getProfileForm } from "../../selectors/getProfileForm/getProfileForm";
-import { IProfile } from "../../types/profile";
+import { IProfile, ProfileErrorsEnum } from "../../types/profile";
+import { validateProfileData } from "../validateProfileData/validateProfileData";
 
 export const updateProfileData = createAsyncThunk<
   IProfile,
   void,
-  IThunkConfig<string>
+  IThunkConfig<ProfileErrorsEnum[]>
 >("profile/updateProfileData", async (_params, thunkAPI) => {
   const { extra, rejectWithValue, getState } = thunkAPI;
 
   const formData = getProfileForm(getState());
+  const err = validateProfileData(formData);
+
+  if (err.length) {
+    return rejectWithValue(err);
+  }
+
   try {
     const response = await extra.api.put<IProfile>("/profile", formData);
 
@@ -21,6 +28,6 @@ export const updateProfileData = createAsyncThunk<
     return response.data;
   } catch (e) {
     console.log(e);
-    return rejectWithValue("Error geting profile");
+    return rejectWithValue([ProfileErrorsEnum.NETWORK_ERROR]);
   }
 });

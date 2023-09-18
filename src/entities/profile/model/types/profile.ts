@@ -17,5 +17,14 @@ export interface IProfileSchema {
   form?: IProfile;
   isLoading: boolean;
   error?: string;
+  validateErrors?: ProfileErrorsEnum[];
   readonly: boolean;
+}
+
+export enum ProfileErrorsEnum {
+  NO_PROFILE_DATA = "no profile data",
+  NO_FIRSTNAME = "no first name",
+  NO_LASTNAME = "no last name",
+  NO_AGE = "no age",
+  NETWORK_ERROR = "network error",
 }

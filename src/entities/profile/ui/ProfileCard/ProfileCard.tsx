@@ -1,7 +1,6 @@
 import { FC } from "react";
 
 import { classNames } from "shared/lib/classNames";
-import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Input } from "shared/ui/Input/Input";
 import { Preloader } from "shared/ui/Preloader/Preloader";
@@ -10,6 +9,7 @@ import { IProfile } from "../../model/types/profile";
 
 import { CountryEnum, CountrySelect } from "entities/country";
 import { CurrencyEnum, CurrencySelect } from "entities/currency";
+import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
 import cls from "./profileCard.module.scss";
 
 interface IProps {
