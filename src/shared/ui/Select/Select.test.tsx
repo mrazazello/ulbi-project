@@ -7,9 +7,9 @@ const options = [
   { label: "georgia", value: "georgia" },
 ];
 
-describe("Input test", () => {
-  test("Input in document", () => {
+describe("Select test", () => {
+  test("Select in document", () => {
     render(<Select name="test" options={options} />);
-    expect(screen.getByRole("select")).toHaveAttribute("name", "test");
+    expect(screen.getByRole("combobox")).toHaveAttribute("name", "test");
   });
 });

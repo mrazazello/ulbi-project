@@ -10,6 +10,7 @@ const meta = {
   title: "wigets/LangSwitcher",
   component: LangSwitcher,
   argTypes: {},
+  decorators: [i18nextDecorator],
 } satisfies Meta<typeof LangSwitcher>;
 
 export default meta;
@@ -17,6 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {},
+  decorators: [i18nextDecorator],
 };
 
 export const Dark: Story = {

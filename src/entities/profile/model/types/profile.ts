@@ -27,4 +27,8 @@ export enum ProfileErrorsEnum {
   NO_LASTNAME = "no last name",
   NO_AGE = "no age",
   NETWORK_ERROR = "network error",
+  NO_CURRENCY = "no currency",
+  NO_COUNTRY = "no country",
+  NO_CITY = "no city",
+  NO_USERNAME = "no username",
 }

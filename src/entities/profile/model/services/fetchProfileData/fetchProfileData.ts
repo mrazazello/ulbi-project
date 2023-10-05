@@ -15,11 +15,8 @@ export const fetchProfileData = createAsyncThunk<
       throw new Error("Thunk error");
     }
 
-    // dispatch(profileActions.setProfileData(response.data));
-
     return response.data;
   } catch (e) {
-    console.log(e);
     return rejectWithValue("Error geting profile");
   }
 });

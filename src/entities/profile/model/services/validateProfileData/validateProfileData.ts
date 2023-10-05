@@ -5,7 +5,7 @@ export const validateProfileData = (data?: IProfile) => {
     return [ProfileErrorsEnum.NO_PROFILE_DATA];
   }
 
-  const { firstName, lastName, age } = data;
+  const { firstName, lastName, age, currency, city, country, username } = data;
   const errors = [];
 
   if (firstName === "") {
@@ -18,6 +18,22 @@ export const validateProfileData = (data?: IProfile) => {
 
   if (!age || !Number(age)) {
     errors.push(ProfileErrorsEnum.NO_AGE);
+  }
+
+  if (!currency) {
+    errors.push(ProfileErrorsEnum.NO_CURRENCY);
+  }
+
+  if (!country) {
+    errors.push(ProfileErrorsEnum.NO_COUNTRY);
+  }
+
+  if (!city) {
+    errors.push(ProfileErrorsEnum.NO_CITY);
+  }
+
+  if (!username) {
+    errors.push(ProfileErrorsEnum.NO_USERNAME);
   }
 
   return errors;

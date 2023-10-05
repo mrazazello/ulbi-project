@@ -29,7 +29,9 @@ const ProfilePage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (PROJECT !== "storybook") {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const formData = useSelector(getProfileForm);

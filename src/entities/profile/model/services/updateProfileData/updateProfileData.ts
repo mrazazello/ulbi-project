@@ -27,7 +27,6 @@ export const updateProfileData = createAsyncThunk<
 
     return response.data;
   } catch (e) {
-    console.log(e);
     return rejectWithValue([ProfileErrorsEnum.NETWORK_ERROR]);
   }
 });
