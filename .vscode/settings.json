@@ -74,6 +74,9 @@
   "files.enableTrash": false,
   "files.eol": "\n",
   "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "**/.fttemplates/**": "plaintext"
+  },
 
   // TabNine
   "tabnine.experimentalAutoImports": true

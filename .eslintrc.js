@@ -19,7 +19,7 @@ module.exports = {
     sourceType: "module",
     project: ["./tsconfig.json"],
   },
-  ignorePatterns: [".eslintrc.*", "./json-server/*.js"],
+  ignorePatterns: [".eslintrc.*", "./json-server/*.js", ".fttemplates/*"],
   plugins: ["import", "react", "prettier", "react-hooks"],
   rules: {
     "prettier/prettier": "error",
