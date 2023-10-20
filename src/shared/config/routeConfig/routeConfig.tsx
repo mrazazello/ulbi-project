@@ -1,5 +1,7 @@
 import { RouteProps } from "react-router-dom";
 
+import { ArticleDetailPage } from "pages/articleDetailPage";
+import { ArticlesPage } from "pages/articlesPage";
 import { FavoritesPage } from "pages/favoritesPage";
 import { LoginPage } from "pages/login";
 import { MainPage } from "pages/mainPage";
@@ -23,6 +25,8 @@ export enum AppRoutesEnum {
   NOT_FOUND = "not_found",
   LOGIN = "login",
   PROFILE = "profile",
+  ARTICLES = "articles",
+  ARTICLE_DETAIL = "articles_detail",
 }
 
 export const routePath: Record<AppRoutesEnum, string> = {
@@ -33,6 +37,8 @@ export const routePath: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.MORE]: "/more",
   [AppRoutesEnum.LOGIN]: "/login",
   [AppRoutesEnum.PROFILE]: "/profile",
+  [AppRoutesEnum.ARTICLES]: "/articles",
+  [AppRoutesEnum.ARTICLE_DETAIL]: "/articles/",
 
   // all others
   [AppRoutesEnum.NOT_FOUND]: "*",
@@ -67,6 +73,16 @@ export const routeConfig: Record<AppRoutesEnum, AppRouteType> = {
   [AppRoutesEnum.PROFILE]: {
     path: routePath.profile,
     element: <ProfilePage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.ARTICLES]: {
+    path: routePath.articles,
+    element: <ArticlesPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.ARTICLE_DETAIL]: {
+    path: routePath.articles_detail + ":id",
+    element: <ArticleDetailPage />,
     authOnly: true,
   },
   [AppRoutesEnum.NOT_FOUND]: {

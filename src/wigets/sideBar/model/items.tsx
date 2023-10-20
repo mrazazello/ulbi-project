@@ -20,4 +20,16 @@ export const sideBarMenu: ISideBarItem[] = [
     Icon: PlayBtn,
     authOnly: true,
   },
+  {
+    text: "Articles",
+    url: routePath.articles,
+    Icon: PlayBtn,
+    authOnly: true,
+  },
+  {
+    text: "Article page",
+    url: routePath.articles_detail + "1",
+    Icon: PlayBtn,
+    authOnly: true,
+  },
 ];
