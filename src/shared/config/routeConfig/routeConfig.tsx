@@ -9,7 +9,7 @@ import { OrdersPage } from "pages/ordersPage";
 import { ProfilePage } from "pages/profilePage";
 import { ProgressPage } from "pages/progressPage";
 
-type AppRouteProps = RouteProps & {
+export type AppRouteType = RouteProps & {
   authOnly?: boolean;
 };
 
@@ -38,7 +38,7 @@ export const routePath: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.NOT_FOUND]: "*",
 };
 
-export const routeConfig: Record<AppRoutesEnum, AppRouteProps> = {
+export const routeConfig: Record<AppRoutesEnum, AppRouteType> = {
   [AppRoutesEnum.MAIN]: {
     path: routePath.main,
     element: <MainPage />,
