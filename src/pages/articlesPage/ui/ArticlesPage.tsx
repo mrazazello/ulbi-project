@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 const ArticlesPage = () => {
-  const { t } = useTranslation("main");
+  const { t } = useTranslation("article");
   return (
     <div>
       <h1>{t("page title")}</h1>
