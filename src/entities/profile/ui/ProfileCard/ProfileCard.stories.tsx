@@ -4,9 +4,9 @@ import { ThemeEnum } from "app/providers/themeProvider";
 import { CountryEnum } from "entities/country";
 import { CurrencyEnum } from "entities/currency";
 import { IProfile } from "entities/profile/model/types/profile";
+import avatarImg from "shared/assets/tests/test-avatar.png";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 import { ProfileCard } from "./ProfileCard";
-import avatarImg from "shared/assets/tests/test-avatar.png";
 
 const profileData: IProfile = {
   firstName: "sdadas",
@@ -20,7 +20,7 @@ const profileData: IProfile = {
 };
 
 export default {
-  title: "enteties/ProfileCard",
+  title: "entities/ProfileCard",
   component: ProfileCard,
   tags: ["autodocs"],
   argTypes: {},

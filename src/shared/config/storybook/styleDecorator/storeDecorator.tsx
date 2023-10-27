@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 
 import { IStateSchema, StoreProvider } from "app/providers/storeProvider";
 import "app/styles/index.scss";
+import { articleReducer } from "entities/article";
 import { profileReducer } from "entities/profile";
 import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
 import { ReducerListType } from "shared/lib/DynamicModuleLoader";
@@ -10,6 +11,7 @@ import { ReducerListType } from "shared/lib/DynamicModuleLoader";
 const defaultAsyncReducers: ReducerListType = {
   loginForm: loginReducer,
   profile: profileReducer,
+  articleDetail: articleReducer,
 };
 
 export const storeDecorator =

@@ -1,0 +1,13 @@
+.Code {
+  border: 1px solid;
+  padding: 10px;
+  position: relative;
+  min-height: 100px;
+  background-color: rgb(var(--code-bg));
+
+  & .btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+}

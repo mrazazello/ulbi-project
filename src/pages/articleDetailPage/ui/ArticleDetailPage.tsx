@@ -12,7 +12,6 @@ const ArticleDetailPage = () => {
 
   return (
     <div>
-      <h1>Article title</h1>
       <ArticleDetail id={id} />
     </div>
   );

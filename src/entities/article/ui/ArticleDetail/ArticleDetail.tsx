@@ -1,18 +1,26 @@
-import { getArticleError } from "entities/article/model/selectors/getArticleError/getArticleError";
-import { getArticleIsLoading } from "entities/article/model/selectors/getArticleIsLoading/getArticleIsLoading";
 import { FC, memo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   DynamicModuleLoader,
   ReducerListType,
 } from "shared/lib/DynamicModuleLoader";
 import { classNames } from "shared/lib/classNames";
 import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
+import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { Text } from "shared/ui/Text/Text";
+
 import { getArticleData } from "../../model/selectors/getArticleData/getArticleData";
+import { getArticleError } from "../../model/selectors/getArticleError/getArticleError";
+import { getArticleIsLoading } from "../../model/selectors/getArticleIsLoading/getArticleIsLoading";
 import { fetchArticleById } from "../../model/service/fetchArticleById/fetchArticleById";
 import { articleReducer } from "../../model/slice/articleSlice";
+import { ArticleBlock, ArticleBlockTypeEnum } from "../../model/types/article";
+import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
+import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
+import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./articledetail.module.scss";
 
 interface IProps {
@@ -24,13 +32,46 @@ const reducers: ReducerListType = {
   articleDetail: articleReducer,
 };
 
+const renderBlock = (block: ArticleBlock) => {
+  switch (block.type) {
+    case ArticleBlockTypeEnum.CODE:
+      return (
+        <ArticleCodeBlockComponent
+          block={block}
+          key={block.id}
+          className={cls.block}
+        />
+      );
+    case ArticleBlockTypeEnum.TEXT:
+      return (
+        <ArticleTextBlockComponent
+          block={block}
+          key={block.id}
+          className={cls.block}
+        />
+      );
+    case ArticleBlockTypeEnum.IMAGE:
+      return (
+        <ArticleImageBlockComponent
+          block={block}
+          key={block.id}
+          className={cls.block}
+        />
+      );
+    default:
+      return null;
+  }
+};
+
 export const ArticleDetail: FC<IProps> = memo((props: IProps) => {
   const { className, id } = props;
   const dispatch = useDispatch();
   const { t } = useTranslation("article");
 
   useEffect(() => {
-    dispatch(fetchArticleById(id));
+    if (PROJECT !== "storybook") {
+      dispatch(fetchArticleById(id));
+    }
   }, [dispatch, id]);
 
   const article = useSelector(getArticleData);
@@ -53,8 +94,18 @@ export const ArticleDetail: FC<IProps> = memo((props: IProps) => {
         <Skeleton width="100%" height={200} />
       </>
     );
-  } else {
-    content = JSON.stringify(article);
+  } else if (article) {
+    content = (
+      <>
+        <h1>{article.title}</h1>
+        <Text text={article.subtitle} />
+        <Avatar src={article.img} alt="avatar" />
+        <Text text={article.views.toString()} />
+        <Text text={article.createdAt} />
+        {/* "type": ["IT"], */}
+        {article.blocks.map(renderBlock)}
+      </>
+    );
   }
 
   return (
