@@ -1,5 +1,5 @@
 import { FC, useMemo } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./select.module.scss";
 
 export interface SelectOption {

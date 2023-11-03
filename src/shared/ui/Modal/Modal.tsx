@@ -1,6 +1,6 @@
 import { useTheme } from "app/providers/themeProvider";
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Portal } from "shared/ui/Portal/Portal";
 import cls from "./modal.module.scss";
 

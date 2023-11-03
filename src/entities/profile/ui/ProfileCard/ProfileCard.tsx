@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Input } from "shared/ui/Input/Input";
 import { Preloader } from "shared/ui/Preloader/Preloader";

@@ -1,6 +1,6 @@
 import { FC, InputHTMLAttributes, memo, useEffect, useRef } from "react";
 
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./input.module.scss";
 
 export enum InputSizeEnum {

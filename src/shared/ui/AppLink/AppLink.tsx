@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link, LinkProps } from "react-router-dom";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./appLink.module.scss";
 
 interface IPropsType extends LinkProps {

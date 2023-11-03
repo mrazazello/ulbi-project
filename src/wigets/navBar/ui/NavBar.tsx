@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from "react";
 
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import { LangSwitcher } from "wigets/LangSwitcher";
 import { ThemeSwitcher } from "wigets/ThemeSwitcher";
 
@@ -8,7 +8,7 @@ import { getUserAuthData, userActions } from "entities/user";
 import { LoginModal } from "features/AuthByUsername";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "shared/lib/useAppDispatch";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
 import { navBarItems } from "../model/NavBarItems";
 import { NavBarItem } from "./NavBarItem";

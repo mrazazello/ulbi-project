@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { classNames } from "shared/lib/classNames";
-import cls from "./code.module.scss";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Button, ButtonThemeEnum } from "../Button/Button";
+import cls from "./code.module.scss";
 
 interface IProps {
   className?: string;

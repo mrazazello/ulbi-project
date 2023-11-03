@@ -1,7 +1,7 @@
 import { autoUpdate, flip, shift, useFloating } from "@floating-ui/react-dom";
 import { ReactNode, useRef, useState } from "react";
-import { classNames } from "shared/lib/classNames";
-import { useOutsideClick } from "shared/lib/useOutsideClick";
+import { classNames } from "shared/lib/classNames/classNames";
+import { useOutsideClick } from "shared/lib/hooks/useOutsideClick";
 
 import cls from "./dropDown.module.scss";
 

@@ -1,6 +1,6 @@
 import { FC, useCallback } from "react";
 
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Select } from "shared/ui/Select/Select";
 import { CountryEnum } from "../model/types/country";
 

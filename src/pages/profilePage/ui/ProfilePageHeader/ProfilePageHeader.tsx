@@ -6,8 +6,8 @@ import {
 import { FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { classNames } from "shared/lib/classNames";
-import { useAppDispatch } from "shared/lib/useAppDispatch";
+import { classNames } from "shared/lib/classNames/classNames";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
 import cls from "./profilePageHeader.module.scss";
 

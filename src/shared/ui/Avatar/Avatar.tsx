@@ -1,10 +1,10 @@
 import { CSSProperties, FC } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./avatar.module.scss";
 
 interface IProps {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   size?: number;
   className?: string;
 }

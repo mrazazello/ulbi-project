@@ -1,5 +1,5 @@
 import { CSSProperties, FC } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./skeleton.module.scss";
 
 interface IProps {

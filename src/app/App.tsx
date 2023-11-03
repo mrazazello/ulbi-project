@@ -1,13 +1,13 @@
 import { AppRouter } from "app/providers/router";
 import { useTheme } from "app/providers/themeProvider";
 import { Suspense, useEffect } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import { NavBar } from "wigets/navBar";
 import { SideBar } from "wigets/sideBar";
 
 import { getUserInited, userActions } from "entities/user";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "shared/lib/useAppDispatch";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Preloader } from "shared/ui/Preloader/Preloader";
 
 const App = () => {

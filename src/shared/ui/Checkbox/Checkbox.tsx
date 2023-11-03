@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./checkbox.module.scss";
 
 interface IProps {

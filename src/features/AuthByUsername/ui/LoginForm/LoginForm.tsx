@@ -2,7 +2,7 @@ import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
 
 import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
@@ -17,8 +17,8 @@ import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import {
   DynamicModuleLoader,
   ReducerListType,
-} from "shared/lib/DynamicModuleLoader";
-import { useAppDispatch } from "shared/lib/useAppDispatch";
+} from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Input } from "shared/ui/Input/Input";
 import cls from "./loginForm.module.scss";
 

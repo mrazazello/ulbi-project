@@ -11,13 +11,14 @@ import {
   profileActions,
   profileReducer,
 } from "entities/profile";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import {
   DynamicModuleLoader,
   ReducerListType,
-} from "shared/lib/DynamicModuleLoader";
-import { useAppDispatch } from "shared/lib/useAppDispatch";
+} from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
@@ -28,11 +29,9 @@ const reducersList: ReducerListType = {
 const ProfilePage = () => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (PROJECT !== "storybook") {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  useInitialEffect(() => {
+    dispatch(fetchProfileData());
+  }, []);
 
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);

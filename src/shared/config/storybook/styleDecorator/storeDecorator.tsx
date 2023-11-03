@@ -6,7 +6,7 @@ import "app/styles/index.scss";
 import { articleReducer } from "entities/article";
 import { profileReducer } from "entities/profile";
 import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
-import { ReducerListType } from "shared/lib/DynamicModuleLoader";
+import { ReducerListType } from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
 
 const defaultAsyncReducers: ReducerListType = {
   loginForm: loginReducer,

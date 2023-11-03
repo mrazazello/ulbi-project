@@ -11,14 +11,18 @@ import { ICounterSchema } from "entities/counter";
 import { IProfileSchema } from "entities/profile";
 import { IUserSchema } from "entities/user";
 import { ILoginSchema } from "features/AuthByUsername/model/types/loginSchema";
+import { IArticleDetailCommentSchema } from "pages/articleDetailPage";
 import { NavigateFunction } from "react-router-dom";
 
 export interface IStateSchema {
   counter: ICounterSchema;
   user: IUserSchema;
+
+  // async reducers
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;
   articleDetail?: IArticleSchema;
+  articleDetailsComments?: IArticleDetailCommentSchema;
 }
 
 export type StateSchemaKeyType = keyof IStateSchema;

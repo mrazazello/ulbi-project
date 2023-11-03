@@ -1,6 +1,6 @@
 import { IArticleImageBlock } from "entities/article/model/types/article";
 import { FC, memo } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Text, TextAlign } from "shared/ui/Text/Text";
 import cls from "./articleimageblockcomponent.module.scss";
 

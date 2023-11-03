@@ -1,12 +1,12 @@
-import { FC, memo, useEffect } from "react";
+import { FC, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
   DynamicModuleLoader,
   ReducerListType,
-} from "shared/lib/DynamicModuleLoader";
-import { classNames } from "shared/lib/classNames";
+} from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
@@ -22,6 +22,7 @@ import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./articledetail.module.scss";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 
 interface IProps {
   className?: string;
@@ -68,11 +69,11 @@ export const ArticleDetail: FC<IProps> = memo((props: IProps) => {
   const dispatch = useDispatch();
   const { t } = useTranslation("article");
 
-  useEffect(() => {
+  useInitialEffect(() => {
     if (PROJECT !== "storybook") {
       dispatch(fetchArticleById(id));
     }
-  }, [dispatch, id]);
+  }, [id]);
 
   const article = useSelector(getArticleData);
   const loading = useSelector(getArticleIsLoading);

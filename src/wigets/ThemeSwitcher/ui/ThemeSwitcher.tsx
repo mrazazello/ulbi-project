@@ -2,7 +2,7 @@ import { Moon, Sun } from "react-bootstrap-icons";
 
 import { ThemeEnum, useTheme } from "app/providers/themeProvider";
 import { memo } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
 
 interface IProps {
