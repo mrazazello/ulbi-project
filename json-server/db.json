@@ -1,15 +1,30 @@
 {
-  "profile": {
-    "firstName": "Ivan",
-    "lastName": "Programerov3",
-    "age": 2233,
-    "currency": "EUR",
-    "country": "Georgia",
-    "city:": "Petrozavodsk",
-    "username": "aza22",
-    "avatar": "https://cdn0.iconfinder.com/data/icons/occupation-002/64/programmer-programming-occupation-avatar-512.png",
-    "city": "asfdsfds"
-  },
+  "profiles": [
+    {
+      "id": "1",
+      "firstName": "Ivan222",
+      "lastName": "Programerov3",
+      "age": 2233,
+      "currency": "EUR",
+      "country": "Georgia",
+      "city:": "Petrozavodsk",
+      "username": "aza",
+      "avatar": "https://cdn0.iconfinder.com/data/icons/occupation-002/64/programmer-programming-occupation-avatar-512.png",
+      "city": "asfdsfds"
+    },
+    {
+      "id": "2",
+      "firstName": "User",
+      "lastName": "Userov",
+      "age": 2233,
+      "currency": "EUR",
+      "country": "Georgia",
+      "city:": "Petrozavodsk",
+      "username": "user",
+      "avatar": "https://t4.ftcdn.net/jpg/06/00/31/03/360_F_600310392_dNGOHNiLyNd338mHwbC1wYeY50nYkPV5.jpg",
+      "city": "Tbilisi"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -34,7 +49,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -115,6 +132,18 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "text": "сука",
+      "articleId": "1",
+      "userId": "1",
+      "id": "NVcP-_G"
+    },
+    {
+      "text": "test 3",
+      "articleId": "1",
+      "userId": "1",
+      "id": "Ui2Y0hk"
     }
   ]
 }

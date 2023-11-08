@@ -13,6 +13,7 @@ import {
 } from "entities/profile";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import {
   DynamicModuleLoader,
   ReducerListType,
@@ -28,10 +29,13 @@ const reducersList: ReducerListType = {
 
 const ProfilePage = () => {
   const dispatch = useAppDispatch();
+  const { id } = useParams();
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData());
-  }, []);
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
+  }, [id]);
 
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);

@@ -36,7 +36,7 @@ export const routePath: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.ORDERS]: "/orders",
   [AppRoutesEnum.MORE]: "/more",
   [AppRoutesEnum.LOGIN]: "/login",
-  [AppRoutesEnum.PROFILE]: "/profile",
+  [AppRoutesEnum.PROFILE]: "/profile/",
   [AppRoutesEnum.ARTICLES]: "/articles",
   [AppRoutesEnum.ARTICLE_DETAIL]: "/articles/",
 
@@ -71,7 +71,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRouteType> = {
     element: <LoginPage />,
   },
   [AppRoutesEnum.PROFILE]: {
-    path: routePath.profile,
+    path: routePath.profile + ":id",
     element: <ProfilePage />,
     authOnly: true,
   },

@@ -2,6 +2,7 @@ import { CountryEnum } from "entities/country";
 import { CurrencyEnum } from "entities/currency";
 
 export interface IProfile {
+  id?: string;
   firstName?: string;
   lastName?: string;
   age?: number;

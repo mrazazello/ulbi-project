@@ -1,12 +1,12 @@
 import { CountryEnum } from "entities/country";
 import { CurrencyEnum } from "entities/currency";
 import { TestAsyncThunk } from "shared/config/tests/TestAsyncThunk";
-import { ProfileErrorsEnum } from "../../types/profile";
+import { IProfile, ProfileErrorsEnum } from "../../types/profile";
 import { updateProfileData } from "./updateProfileData";
 
 jest.mock("axios");
 
-const profileData = {
+const profileData: IProfile = {
   firstName: "Test Name",
   lastName: "test LastName",
   age: 5,
@@ -15,6 +15,7 @@ const profileData = {
   city: "Tbilisi",
   username: "aza-test",
   avatar: "test image",
+  id: "1",
 };
 
 describe("updateProfileData async Thunk test", () => {

@@ -1,8 +1,10 @@
 import {
+  getProfileData,
   getProfileReadonly,
   profileActions,
   updateProfileData,
 } from "entities/profile";
+import { getUserAuthData } from "entities/user";
 import { FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -21,6 +23,9 @@ export const ProfilePageHeader: FC<IProps> = (props) => {
   const dispatch = useAppDispatch();
 
   const readonly = useSelector(getProfileReadonly);
+  const auth = useSelector(getUserAuthData);
+  const profile = useSelector(getProfileData);
+  const canEdit = auth?.id === profile?.id;
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -37,23 +42,27 @@ export const ProfilePageHeader: FC<IProps> = (props) => {
   return (
     <div className={classNames(cls.profilePageHeader, {}, [className])}>
       <h1>{t("page title")}</h1>
-      {readonly ? (
-        <Button
-          theme={ButtonThemeEnum.PRIMARY}
-          className={cls.editBtn}
-          onClick={onEdit}
-        >
-          {t("edit")}
-        </Button>
-      ) : (
-        <div className={cls.editBtn}>
-          <Button theme={ButtonThemeEnum.SECONDARY} onClick={onCancelEdit}>
-            {t("cancel")}
-          </Button>
-          <Button theme={ButtonThemeEnum.PRIMARY} onClick={onSave}>
-            {t("save")}
-          </Button>
-        </div>
+      {canEdit && (
+        <>
+          {readonly ? (
+            <Button
+              theme={ButtonThemeEnum.PRIMARY}
+              className={cls.editBtn}
+              onClick={onEdit}
+            >
+              {t("edit")}
+            </Button>
+          ) : (
+            <div className={cls.editBtn}>
+              <Button theme={ButtonThemeEnum.SECONDARY} onClick={onCancelEdit}>
+                {t("cancel")}
+              </Button>
+              <Button theme={ButtonThemeEnum.PRIMARY} onClick={onSave}>
+                {t("save")}
+              </Button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

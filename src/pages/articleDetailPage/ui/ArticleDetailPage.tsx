@@ -1,5 +1,7 @@
 import { CommentList } from "entities/Comment";
 import { ArticleDetail } from "entities/article";
+import { AddCommentForm } from "features/addComment";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -9,7 +11,8 @@ import {
 } from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { getArticleCommentsIsLoading } from "../model/selectors/comments";
-import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArticleId";
+import { addCommentForArticle } from "../model/services/addCommentForArticle/addCommentForArticle";
+import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import {
   articleDetailCommentsReducer,
   getArticleComments,
@@ -30,6 +33,13 @@ const ArticleDetailPage = () => {
     dispatch(fetchCommentsByArticleId(id));
   }, [id]);
 
+  const onSendHandler = useCallback(
+    (comment: string) => {
+      dispatch(addCommentForArticle(comment));
+    },
+    [dispatch]
+  );
+
   if (!id) {
     return <h1>{t("Article not found")}</h1>;
   }
@@ -39,6 +49,7 @@ const ArticleDetailPage = () => {
       <div>
         <ArticleDetail id={id} />
         <h2>{t("Комментарии")}</h2>
+        <AddCommentForm onSendComment={onSendHandler} />
         <CommentList isLloading={commentsIsLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>

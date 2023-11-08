@@ -10,7 +10,7 @@ export enum InputSizeEnum {
 }
 type HTMLInputPropsType = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "onChange" | "value" | "readOnly"
+  "onChange" | "value" | "readOnly" | "width"
 >;
 interface IProps extends HTMLInputPropsType {
   autofocus?: boolean;
@@ -21,6 +21,7 @@ interface IProps extends HTMLInputPropsType {
   value?: string | number;
   onChange?: (value: string) => void;
   readonly?: boolean;
+  width?: string | number;
 }
 
 export const InputComponent: FC<IProps> = (props: IProps) => {
@@ -33,6 +34,7 @@ export const InputComponent: FC<IProps> = (props: IProps) => {
     value,
     onChange,
     readonly = false,
+    width,
     ...otherProps
   } = props;
 
@@ -49,11 +51,14 @@ export const InputComponent: FC<IProps> = (props: IProps) => {
   }, [autofocus]);
 
   return (
-    <div className={cls.inputWrapper}>
+    <div
+      className={classNames(cls.inputWrapper, {}, [className])}
+      style={{ width: width }}
+    >
       {placeholder && <div className={cls.placeholder}>{placeholder}</div>}
       <input
         className={classNames(cls.input, { [cls.readonly]: readonly }, [
-          className,
+          // className,
           cls[theme],
         ])}
         name={name}

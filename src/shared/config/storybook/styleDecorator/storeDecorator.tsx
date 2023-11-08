@@ -6,12 +6,16 @@ import "app/styles/index.scss";
 import { articleReducer } from "entities/article";
 import { profileReducer } from "entities/profile";
 import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
+import { addCommentsFormReducer } from "features/addComment/model/slice/addCommentFormSlice";
+import { articleDetailCommentsReducer } from "pages/articleDetailPage/model/slice/articleDetailCommentsSlice";
 import { ReducerListType } from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
 
 const defaultAsyncReducers: ReducerListType = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetail: articleReducer,
+  addCommentForm: addCommentsFormReducer,
+  articleDetailsComments: articleDetailCommentsReducer,
 };
 
 export const storeDecorator =

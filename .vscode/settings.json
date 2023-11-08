@@ -55,7 +55,7 @@
   "editor.semanticHighlighting.enabled": true,
   "editor.snippetSuggestions": "bottom",
   "editor.tabCompletion": "on",
-  "editor.tabSize": 4,
+  "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
   "editor.unicodeHighlight.ambiguousCharacters": true,
   "editor.unicodeHighlight.includeComments": true,

@@ -16,7 +16,7 @@ export const sideBarMenu: ISideBarItem[] = [
   },
   {
     text: "Profile",
-    url: routePath.profile,
+    url: routePath.profile + "1",
     Icon: PlayBtn,
     authOnly: true,
   },
