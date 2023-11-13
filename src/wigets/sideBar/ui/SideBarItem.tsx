@@ -3,7 +3,7 @@ import { FC, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { AppLink } from "shared/ui/AppLink/AppLink";
-import { ISideBarItem } from "../model/items";
+import { ISideBarItem } from "../model/types/sidebarItems";
 
 interface IProps {
   item: ISideBarItem;

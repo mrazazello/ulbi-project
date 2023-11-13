@@ -4,9 +4,10 @@ import { Button } from "shared/ui/Button/Button";
 
 import { ArrowBarLeft, ArrowBarRight } from "react-bootstrap-icons";
 import { ThemeSwitcher } from "wigets/ThemeSwitcher";
-import { sideBarMenu } from "../model/items";
 import { SideBarItem } from "./SideBarItem";
 import cls from "./sideBar.module.scss";
+import { useSelector } from "react-redux";
+import { getSidebarItemSelector } from "../model/selectors/getSidebarItems";
 
 interface IProps {
   className?: string;
@@ -19,6 +20,8 @@ export const SideBar = (props: IProps) => {
   const sideBarToggle = () => {
     setCollapsed((prev) => !prev);
   };
+
+  const sideBarMenu = useSelector(getSidebarItemSelector);
 
   return (
     <aside
