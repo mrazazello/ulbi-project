@@ -1,7 +1,7 @@
-import { IArticleImageBlock } from "entities/article/model/types/article";
 import { FC, memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Text, TextAlign } from "shared/ui/Text/Text";
+import { IArticleImageBlock } from "../../model/types/article";
 import cls from "./articleimageblockcomponent.module.scss";
 
 interface IProps {

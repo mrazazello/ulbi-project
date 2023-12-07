@@ -3,7 +3,7 @@ import { ReactElement } from "react";
 
 import { IStateSchema, StoreProvider } from "app/providers/storeProvider";
 import "app/styles/index.scss";
-import { articleReducer } from "entities/article";
+import { articleReducer } from "entities/Article";
 import { profileReducer } from "entities/profile";
 import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
 import { addCommentsFormReducer } from "features/addComment/model/slice/addCommentFormSlice";

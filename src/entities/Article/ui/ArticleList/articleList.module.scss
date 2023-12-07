@@ -1,0 +1,15 @@
+.list {
+  .card {
+    margin-bottom: 10px;
+  }
+}
+
+.thumb {
+  display: flex;
+  flex-wrap: wrap;
+
+  .card {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}

@@ -1,3 +1,5 @@
+import { IUser } from "entities/user";
+
 export enum ArticleBlockTypeEnum {
   CODE = "CODE",
   TEXT = "TEXT",
@@ -45,10 +47,16 @@ export interface IArticle {
   createdAt: string;
   type: ArticlesTypesEnum[];
   blocks: ArticleBlock[];
+  user: IUser;
 }
 
 export interface IArticleSchema {
   data?: IArticle;
   isLoading: boolean;
   error?: string;
+}
+
+export enum ArticleViewEnum {
+  LIST = "list",
+  THUMB = "thumb",
 }

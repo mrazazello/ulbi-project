@@ -1,12 +1,17 @@
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+
 import { IStateSchema } from "app/providers/storeProvider";
+import { ThemeEnum } from "app/providers/themeProvider";
+import { storeDecorator } from "shared/config/storybook/styleDecorator/storeDecorator";
+import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
 import {
   ArticleBlockTypeEnum,
   ArticlesTypesEnum,
   IArticle,
-} from "../../types/article";
-import { getArticleData } from "./getArticleData";
+} from "../../model/types/article";
+import { ArticleDetail } from "./ArticleDetail";
 
-const articleData: IArticle = {
+const article: IArticle = {
   id: "1",
   title: "Javascript news",
   subtitle: "Что нового в JS за 2022 год?",
@@ -14,6 +19,10 @@ const articleData: IArticle = {
   views: 1022,
   createdAt: "26.02.2022",
   type: [ArticlesTypesEnum.IT],
+  user: {
+    id: "1",
+    username: "aza",
+  },
   blocks: [
     {
       id: "1",
@@ -39,19 +48,35 @@ const articleData: IArticle = {
   ],
 };
 
-describe("getArticleData test", () => {
-  test("selector shoud return data", () => {
-    const state: DeepPartial<IStateSchema> = {
-      articleDetail: {
-        data: articleData,
-      },
-    };
-    expect(getArticleData(state as IStateSchema)).toEqual(articleData);
-  });
-  test("empty selector shoud return empty string", () => {
-    const state: DeepPartial<IStateSchema> = {
-      profile: {},
-    };
-    expect(getArticleData(state as IStateSchema)).toEqual(undefined);
-  });
-});
+const initialStore: DeepPartial<IStateSchema> = {
+  articleDetail: {
+    data: article,
+    isLoading: false,
+    error: undefined,
+  },
+};
+
+export default {
+  title: "entities/ArticleDetail",
+  component: ArticleDetail,
+  tags: ["autodocs"],
+  argTypes: {},
+  args: {
+    id: "1",
+  },
+} as ComponentMeta<typeof ArticleDetail>;
+
+const Template: ComponentStory<typeof ArticleDetail> = (args) => (
+  <ArticleDetail {...args} />
+);
+
+export const Normal = Template.bind({});
+Normal.args = {};
+Normal.decorators = [storeDecorator(initialStore)];
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [
+  storeDecorator(initialStore),
+  themeDecorator(ThemeEnum.DARK),
+];
