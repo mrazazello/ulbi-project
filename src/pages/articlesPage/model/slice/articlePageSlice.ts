@@ -27,6 +27,7 @@ export const articlePageSlice = createSlice({
     view: ArticleViewEnum.LIST,
     page: 1,
     hasMore: true,
+    _inited: false,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleViewEnum>) => {
@@ -42,6 +43,7 @@ export const articlePageSlice = createSlice({
       ) as ArticleViewEnum;
       state.view = view;
       state.limit = view === ArticleViewEnum.LIST ? 4 : 9;
+      state._inited = true;
     },
   },
   extraReducers: (builder) => {

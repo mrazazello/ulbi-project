@@ -12,21 +12,20 @@ import {
 } from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
-import { Alert } from "shared/ui/Alert/Alert";
+import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
 import { Page } from "shared/ui/Page/Page";
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from "../model/selectors/articlesPageSelectors";
-import { fetchArticlesList } from "../model/services/fetchArticlesList/fetchArticlesList";
 import { fetchNextArticlesPage } from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "../model/services/initArticlesPage/initArticlesPage";
 import {
   articlesPageActions,
   articlesPageReducer,
   getArticles,
 } from "../model/slice/articlePageSlice";
-import { AlertTypeEnum } from "shared/ui/Alert/Alert";
 
 const reducers: ReducerListType = {
   articlesPage: articlesPageReducer,
@@ -45,8 +44,7 @@ const ArticlesPage = () => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   }, []);
 
   const onChangeView = useCallback(
@@ -66,7 +64,7 @@ const ArticlesPage = () => {
   }
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart}>
         <h1>{t("page title")}</h1>
         <ArticleViewSelector view={pageView} onViewClick={onChangeView} />

@@ -33,7 +33,6 @@ export function useInfinityScroll(props: IProps) {
 
     return () => {
       if (observer && triggerElement) {
-        debugger;
         // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(triggerElement);
       }

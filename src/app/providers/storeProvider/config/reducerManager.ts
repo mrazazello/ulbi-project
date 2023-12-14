@@ -7,6 +7,7 @@ import {
 import {
   IReducerManager,
   IStateSchema,
+  MountedReducersType,
   StateSchemaKeyType,
 } from "./stateSchema";
 
@@ -21,6 +22,8 @@ export function createReducerManager(
 
   // An array which is used to delete state keys when reducers are removed
   let keysToRemove: StateSchemaKeyType[] = [];
+
+  const mountedReducers: MountedReducersType = {};
 
   return {
     getReducerMap: () => reducers,
@@ -49,6 +52,7 @@ export function createReducerManager(
 
       // Add the reducer to the reducer mapping
       reducers[key] = reducer;
+      mountedReducers[key] = true;
 
       // Generate a new combined reducer
       combinedReducer = combineReducers(reducers);
@@ -65,9 +69,12 @@ export function createReducerManager(
 
       // Add the key to the list of keys to clean up
       keysToRemove.push(key);
+      mountedReducers[key] = false;
 
       // Generate a new combined reducer
       combinedReducer = combineReducers(reducers);
     },
+
+    getMountedReducers: () => mountedReducers,
   };
 }

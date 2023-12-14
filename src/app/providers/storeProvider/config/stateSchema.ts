@@ -14,7 +14,6 @@ import { ILoginSchema } from "features/AuthByUsername/model/types/loginSchema";
 import { IAddCommentFormSchema } from "features/addComment";
 import { IArticleDetailCommentSchema } from "pages/articleDetailPage";
 import { IArticlePageSchema } from "pages/articlesPage";
-import { NavigateFunction } from "react-router-dom";
 
 export interface IStateSchema {
   counter: ICounterSchema;
@@ -31,6 +30,8 @@ export interface IStateSchema {
 
 export type StateSchemaKeyType = keyof IStateSchema;
 
+export type MountedReducersType = OptionalRecord<StateSchemaKeyType, boolean>;
+
 export interface IReducerManager {
   getReducerMap: () => ReducersMapObject<IStateSchema>;
   reduce: (
@@ -39,11 +40,11 @@ export interface IReducerManager {
   ) => CombinedState<IStateSchema>;
   add: (key: StateSchemaKeyType, reducer: Reducer) => void;
   remove: (key: StateSchemaKeyType) => void;
+  getMountedReducers: () => MountedReducersType;
 }
 
 export interface IThunkExtraArg {
   api: AxiosInstance;
-  navigate?: NavigateFunction;
 }
 
 export interface IThunkConfig<T> {
