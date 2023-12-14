@@ -5,12 +5,14 @@ import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { routePath } from "shared/config/routeConfig/routeConfig";
 import {
   DynamicModuleLoader,
   ReducerListType,
 } from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
+import { Page } from "shared/ui/Page/Page";
 import { getArticleCommentsIsLoading } from "../model/selectors/comments";
 import { addCommentForArticle } from "../model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
@@ -18,7 +20,6 @@ import {
   articleDetailCommentsReducer,
   getArticleComments,
 } from "../model/slice/articleDetailCommentsSlice";
-import { routePath } from "shared/config/routeConfig/routeConfig";
 
 const reducers: ReducerListType = {
   articleDetailsComments: articleDetailCommentsReducer,
@@ -53,13 +54,15 @@ const ArticleDetailPage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Button theme={ButtonThemeEnum.SECONDARY} onClick={onBackToList}>
-        {t("Назад к списку")}
-      </Button>
-      <ArticleDetail id={id} />
-      <h2>{t("Комментарии")}</h2>
-      <AddCommentForm onSendComment={onSendHandler} />
-      <CommentList isLloading={commentsIsLoading} comments={comments} />
+      <Page>
+        <Button theme={ButtonThemeEnum.SECONDARY} onClick={onBackToList}>
+          {t("Назад к списку")}
+        </Button>
+        <ArticleDetail id={id} />
+        <h2>{t("Комментарии")}</h2>
+        <AddCommentForm onSendComment={onSendHandler} />
+        <CommentList isLloading={commentsIsLoading} comments={comments} />
+      </Page>
     </DynamicModuleLoader>
   );
 };

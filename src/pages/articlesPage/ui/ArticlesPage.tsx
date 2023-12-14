@@ -12,16 +12,21 @@ import {
 } from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
+import { Alert } from "shared/ui/Alert/Alert";
+import { Page } from "shared/ui/Page/Page";
 import {
+  getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from "../model/selectors/articlesPageSelectors";
 import { fetchArticlesList } from "../model/services/fetchArticlesList/fetchArticlesList";
+import { fetchNextArticlesPage } from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import {
   articlesPageActions,
   articlesPageReducer,
   getArticles,
 } from "../model/slice/articlePageSlice";
+import { AlertTypeEnum } from "shared/ui/Alert/Alert";
 
 const reducers: ReducerListType = {
   articlesPage: articlesPageReducer,
@@ -30,10 +35,18 @@ const reducers: ReducerListType = {
 const ArticlesPage = () => {
   const { t } = useTranslation("article");
   const dispatch = useAppDispatch();
+  const isLoading = useSelector(getArticlesPageIsLoading);
+  const articles = useSelector(getArticles.selectAll);
+  const pageView = useSelector(getArticlesPageView);
+  const error = useSelector(getArticlesPageError);
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
+  }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
     dispatch(articlesPageActions.initState());
+    dispatch(fetchArticlesList({ page: 1 }));
   }, []);
 
   const onChangeView = useCallback(
@@ -43,15 +56,26 @@ const ArticlesPage = () => {
     [dispatch]
   );
 
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const view = useSelector(getArticlesPageView);
+  if (error) {
+    return (
+      <Alert
+        type={AlertTypeEnum.ERROR}
+        message={t("Error getting article list")}
+      />
+    );
+  }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <h1>{t("page title")}</h1>
-      <ArticleViewSelector view={view} onViewClick={onChangeView} />
-      <ArticleList view={view} isLoading={isLoading} articles={articles} />
+      <Page onScrollEnd={onLoadNextPart}>
+        <h1>{t("page title")}</h1>
+        <ArticleViewSelector view={pageView} onViewClick={onChangeView} />
+        <ArticleList
+          view={pageView}
+          isLoading={isLoading}
+          articles={articles}
+        />
+      </Page>
     </DynamicModuleLoader>
   );
 };

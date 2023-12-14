@@ -1,9 +1,10 @@
 import { FC } from "react";
+import { Page } from "shared/ui/Page/Page";
 
 export const ErrorPage: FC = () => {
   return (
-    <div className="centeredContainer">
+    <Page className="centeredContainer">
       <h1>There is some error</h1>
-    </div>
+    </Page>
   );
 };

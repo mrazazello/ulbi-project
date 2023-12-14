@@ -22,6 +22,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
+import { Page } from "shared/ui/Page/Page";
 
 const reducersList: ReducerListType = {
   profile: profileReducer,
@@ -101,7 +102,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
-      <div>
+      <Page>
         <ProfilePageHeader />
         {validateErrors?.length &&
           validateErrors.map((item) => (
@@ -121,7 +122,7 @@ const ProfilePage = () => {
           onChangeCurrency={onChangeCurrency}
           onChangeCountry={onChangeCountry}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

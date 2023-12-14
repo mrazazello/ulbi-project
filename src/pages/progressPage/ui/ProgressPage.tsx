@@ -1,10 +1,11 @@
 import { useTranslation } from "react-i18next";
+import { Page } from "shared/ui/Page/Page";
 
 const ProgressPage = () => {
   const { t } = useTranslation("progress");
 
   return (
-    <div>
+    <Page>
       <h1>{t("page title")}</h1>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       Lorem Ipsum has been the industrys standard dummy text ever since the
@@ -15,7 +16,7 @@ const ProgressPage = () => {
       sheets containing Lorem Ipsum passages, and more recently with desktop
       publishing software like Aldus PageMaker including versions of Lorem
       Ipsum.
-    </div>
+    </Page>
   );
 };
 

@@ -28,14 +28,6 @@ export const ArticleList: FC<IProps> = (props) => {
     view = ArticleViewEnum.THUMB,
   } = props;
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        {getSkeletons(view)}
-      </div>
-    );
-  }
-
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length
@@ -48,6 +40,7 @@ export const ArticleList: FC<IProps> = (props) => {
             />
           ))
         : null}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 };

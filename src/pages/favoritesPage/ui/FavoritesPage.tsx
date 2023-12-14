@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "shared/ui/Button/Button";
 import { Modal } from "shared/ui/Modal/Modal";
+import { Page } from "shared/ui/Page/Page";
 
 const FavoritesPage = () => {
   const { t } = useTranslation("favorites");
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <div className="centeredContainer">
+    <Page className="centeredContainer">
       <h1>{t("page title")}</h1>
       <div>centered content</div>
       <Button onClick={() => setOpen(true)}>open</Button>
@@ -23,7 +24,7 @@ const FavoritesPage = () => {
         with desktop publishing software like Aldus PageMaker including versions
         of Lorem Ipsum.
       </Modal>
-    </div>
+    </Page>
   );
 };
 

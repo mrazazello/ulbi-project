@@ -1,14 +1,15 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
+import { Page } from "shared/ui/Page/Page";
 
 const NotFoundPage: FC = () => {
   const { t } = useTranslation("notFound");
 
   return (
-    <div>
+    <Page>
       <h1>{t("page title")}</h1>
       {t("page not found")}
-    </div>
+    </Page>
   );
 };
 
