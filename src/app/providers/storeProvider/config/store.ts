@@ -7,6 +7,7 @@ import {
 
 import { counterReducer } from "entities/counter";
 import { userReducer } from "entities/user";
+import { scrollRestoreReducer } from "features/scrollRestore";
 import { api } from "shared/api/api";
 import { createReducerManager } from "./reducerManager";
 import { IStateSchema, IThunkExtraArg } from "./stateSchema";
@@ -19,6 +20,8 @@ export function createReduxStore(
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    scrollPosition: scrollRestoreReducer,
+
     // profile: profileReducer,
   };
 

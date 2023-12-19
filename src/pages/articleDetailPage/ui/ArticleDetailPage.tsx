@@ -12,7 +12,7 @@ import {
 } from "shared/lib/DynamicModuleLoader/DynamicModuleLoader";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "wigets/Page/Page";
 import { getArticleCommentsIsLoading } from "../model/selectors/comments";
 import { addCommentForArticle } from "../model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "wigets/Page/Page";
 
 export const ErrorPage: FC = () => {
   return (

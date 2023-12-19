@@ -9,7 +9,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
-import { getAddCommentFormData } from "../../model/selectors/getAddCommentFormData/getAddCommentFormData";
+import { getAddCommentFormText } from "../../model/selectors/getAddCommentFormData/getAddCommentFormData";
 import {
   addCommentsFormActions,
   addCommentsFormReducer,
@@ -29,7 +29,7 @@ const AddCommentForm: FC<IProps> = (props) => {
   const { className, onSendComment } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const commentText = useSelector(getAddCommentFormData);
+  const commentText = useSelector(getAddCommentFormText);
 
   const onChangeHandler = useCallback(
     (value: string) => {

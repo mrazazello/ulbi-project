@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "wigets/Page/Page";
 
 const ProgressPage = () => {
   const { t } = useTranslation("progress");

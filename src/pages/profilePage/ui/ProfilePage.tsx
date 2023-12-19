@@ -21,8 +21,8 @@ import {
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { Alert, AlertTypeEnum } from "shared/ui/Alert/Alert";
+import { Page } from "wigets/Page/Page";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
-import { Page } from "shared/ui/Page/Page";
 
 const reducersList: ReducerListType = {
   profile: profileReducer,

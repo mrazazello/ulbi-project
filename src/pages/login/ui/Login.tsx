@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
 import { Checkbox } from "shared/ui/Checkbox/Checkbox";
 import { Input } from "shared/ui/Input/Input";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "wigets/Page/Page";
 
 const LoginPage = () => {
   const { t } = useTranslation("login");

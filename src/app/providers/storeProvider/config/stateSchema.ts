@@ -12,12 +12,14 @@ import { IProfileSchema } from "entities/profile";
 import { IUserSchema } from "entities/user";
 import { ILoginSchema } from "features/AuthByUsername/model/types/loginSchema";
 import { IAddCommentFormSchema } from "features/addComment";
+import { IScrollRestoreSchema } from "features/scrollRestore";
 import { IArticleDetailCommentSchema } from "pages/articleDetailPage";
 import { IArticlePageSchema } from "pages/articlesPage";
 
 export interface IStateSchema {
   counter: ICounterSchema;
   user: IUserSchema;
+  scrollPosition: IScrollRestoreSchema;
 
   // async reducers
   loginForm?: ILoginSchema;
