@@ -45,6 +45,8 @@ export const Page = memo((props: IProps) => {
   }, []);
 
   const scrollHandler = useThrottle((e: React.UIEvent<HTMLDivElement>) => {
+    console.log("e:", e);
+    console.log("scrollTop: ", e.currentTarget.scrollTop);
     dispatch(
       scrollRestoreActions.setScrollPosition({
         path: pathname,
@@ -60,7 +62,9 @@ export const Page = memo((props: IProps) => {
       onScroll={scrollHandler}
     >
       {children}
-      <div ref={triggerRef}></div>
+      {onScrollEnd ? (
+        <div ref={triggerRef} className={cls.trigger}></div>
+      ) : null}
     </section>
   );
 });

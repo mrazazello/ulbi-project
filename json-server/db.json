@@ -44,7 +44,7 @@
   "articles": [
     {
       "id": "1",
-      "title": "Javascript news",
+      "title": "Javascript news 1",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
@@ -118,7 +118,7 @@
       "subtitle": "Что нового в Python за 2023 год?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "28.03.2022",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -188,7 +188,7 @@
       "subtitle": "Что нового за 2023 год?",
       "img": "https://reeder.com.tr/media/magefan_blog/what_is_kotlin_banner_image.png",
       "views": 1000,
-      "createdAt": "28.02.2022",
+      "createdAt": "1.04.2022",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -254,11 +254,11 @@
     },
     {
       "id": "4",
-      "title": "Javascript news",
+      "title": "4 Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.05.2022",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -324,11 +324,11 @@
     },
     {
       "id": "5",
-      "title": "Python news",
+      "title": "5 Python news",
       "subtitle": "Что нового в Python за 2023 год?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "8.06.2022",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -394,11 +394,11 @@
     },
     {
       "id": "6",
-      "title": "Kotlin",
+      "title": "6 Kotlin",
       "subtitle": "Что нового за 2023 год?",
       "img": "https://reeder.com.tr/media/magefan_blog/what_is_kotlin_banner_image.png",
       "views": 1000,
-      "createdAt": "28.02.2022",
+      "createdAt": "11.07.2022",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -464,11 +464,11 @@
     },
     {
       "id": "7",
-      "title": "Javascript news",
+      "title": "7 Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "12.08.2022",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -534,11 +534,11 @@
     },
     {
       "id": "8",
-      "title": "Python news",
+      "title": "8 Python news",
       "subtitle": "Что нового в Python за 2023 год?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 3000,
+      "createdAt": "14.09.2022",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -604,11 +604,11 @@
     },
     {
       "id": "9",
-      "title": "Kotlin",
+      "title": "9 Kotlin",
       "subtitle": "Что нового за 2023 год?",
       "img": "https://reeder.com.tr/media/magefan_blog/what_is_kotlin_banner_image.png",
-      "views": 1000,
-      "createdAt": "28.02.2022",
+      "views": 1001,
+      "createdAt": "16.10.2022",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -674,11 +674,11 @@
     },
     {
       "id": "10",
-      "title": "Javascript news",
+      "title": "10 Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "18.11.2022",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -744,11 +744,11 @@
     },
     {
       "id": "11",
-      "title": "Python news",
+      "title": "11 Python news",
       "subtitle": "Что нового в Python за 2023 год?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "24.12.2022",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -814,11 +814,11 @@
     },
     {
       "id": "12",
-      "title": "Kotlin",
+      "title": "12 Kotlin",
       "subtitle": "Что нового за 2023 год?",
       "img": "https://reeder.com.tr/media/magefan_blog/what_is_kotlin_banner_image.png",
       "views": 1000,
-      "createdAt": "28.02.2022",
+      "createdAt": "10.01.2023",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -884,11 +884,11 @@
     },
     {
       "id": "13",
-      "title": "Javascript news",
+      "title": "13 Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "12.02.2023",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -954,11 +954,11 @@
     },
     {
       "id": "14",
-      "title": "Python news",
+      "title": "14 Python news",
       "subtitle": "Что нового в Python за 2023 год?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "24.02.2023",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -1024,11 +1024,11 @@
     },
     {
       "id": "15",
-      "title": "Kotlin",
+      "title": "15 Kotlin",
       "subtitle": "Что нового за 2023 год?",
       "img": "https://reeder.com.tr/media/magefan_blog/what_is_kotlin_banner_image.png",
       "views": 1000,
-      "createdAt": "28.02.2022",
+      "createdAt": "8.03.2023",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -1094,11 +1094,11 @@
     },
     {
       "id": "16",
-      "title": "Javascript news",
+      "title": "16 Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "10.04.2023",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -1164,11 +1164,11 @@
     },
     {
       "id": "17",
-      "title": "Python news",
+      "title": "17 Python news",
       "subtitle": "Что нового в Python за 2023 год?",
       "img": "https://miro.medium.com/v2/resize:fit:1400/1*m0H6-tUbW6grMlezlb52yw.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "11.05.2023",
       "userId": "2",
       "type": ["IT"],
       "blocks": [
@@ -1234,11 +1234,11 @@
     },
     {
       "id": "18",
-      "title": "Kotlin",
+      "title": "18 Статья мать ее",
       "subtitle": "Что нового за 2023 год?",
       "img": "https://reeder.com.tr/media/magefan_blog/what_is_kotlin_banner_image.png",
-      "views": 1000,
-      "createdAt": "28.02.2022",
+      "views": 1500,
+      "createdAt": "17.06.2023",
       "userId": "2",
       "type": ["IT"],
       "blocks": [

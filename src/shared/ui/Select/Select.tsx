@@ -11,7 +11,7 @@ interface IProps {
   placeholder?: string;
   className?: string;
   options: SelectOption[];
-  name: string;
+  name?: string;
   value?: string;
   onChange?: (value: string) => void;
   readonly?: boolean;
@@ -34,7 +34,7 @@ export const Select: FC<IProps> = (props: IProps) => {
 
   const optionsList = useMemo(() => {
     return options.map((item) => (
-      <option key={item.value}>{item.value}</option>
+      <option key={item.value}>{item.label}</option>
     ));
   }, [options]);
 

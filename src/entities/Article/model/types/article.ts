@@ -38,6 +38,12 @@ export enum ArticlesTypesEnum {
   SIENCE = "Sience",
 }
 
+export enum ArticleSortFieldEnum {
+  VIEWS = "views",
+  TITLE = "title",
+  CREATED = "created",
+}
+
 export interface IArticle {
   id: string;
   title: string;

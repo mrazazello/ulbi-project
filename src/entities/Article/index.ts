@@ -4,6 +4,7 @@ import { getArticleIsLoading } from "./model/selectors/getArticleIsLoading/getAr
 import { fetchArticleById } from "./model/service/fetchArticleById/fetchArticleById";
 import { articleActions, articleReducer } from "./model/slice/articleSlice";
 import {
+  ArticleSortFieldEnum,
   ArticleViewEnum,
   IArticle,
   IArticleSchema,
@@ -22,6 +23,7 @@ export {
   getArticleData,
   ArticleList,
   ArticleViewEnum,
+  ArticleSortFieldEnum,
   ArticleViewSelector,
 };
 export type { IArticle, IArticleSchema };
