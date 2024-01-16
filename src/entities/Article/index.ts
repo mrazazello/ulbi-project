@@ -26,4 +26,5 @@ export {
   ArticleSortFieldEnum,
   ArticleViewSelector,
 };
+
 export type { IArticle, IArticleSchema };

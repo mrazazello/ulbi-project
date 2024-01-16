@@ -14,16 +14,16 @@ export const getSidebarItemSelector = createSelector(
         url: routePath.login,
         Icon: PlayBtn,
       },
-      {
-        text: "Articles",
-        url: routePath.articles,
-        Icon: PlayBtn,
-        authOnly: false,
-      },
     ];
 
     if (autData) {
       sideBarItems.push(
+        {
+          text: "Articles",
+          url: routePath.articles,
+          Icon: PlayBtn,
+          authOnly: true,
+        },
         {
           text: "Profile",
           url: routePath.profile + autData.id,

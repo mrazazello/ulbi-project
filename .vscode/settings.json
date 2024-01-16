@@ -17,10 +17,10 @@
   "editor.autoSurround": "languageDefined",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true,
-    "source.removeUnused": true,
-    "source.sortImports": true
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+    "source.removeUnused": "explicit",
+    "source.sortImports": "explicit"
   },
   "editor.codeLens": true,
   "editor.cursorBlinking": "smooth",

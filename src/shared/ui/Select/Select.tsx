@@ -1,23 +1,23 @@
-import { FC, useMemo } from "react";
+import { useMemo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./select.module.scss";
 
-export interface SelectOption {
+export interface SelectOption<T extends string> {
   label: string;
-  value: string;
+  value: T;
 }
 
-interface IProps {
+interface IProps<T extends string> {
   placeholder?: string;
   className?: string;
-  options: SelectOption[];
+  options: SelectOption<T>[];
   name?: string;
-  value?: string;
-  onChange?: (value: string) => void;
+  value?: T;
+  onChange?: (value: T) => void;
   readonly?: boolean;
 }
 
-export const Select: FC<IProps> = (props: IProps) => {
+export const Select = <T extends string>(props: IProps<T>) => {
   const {
     placeholder,
     className,
@@ -29,12 +29,14 @@ export const Select: FC<IProps> = (props: IProps) => {
   } = props;
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value);
+    onChange?.(e.target.value as T);
   };
 
   const optionsList = useMemo(() => {
     return options.map((item) => (
-      <option key={item.value}>{item.label}</option>
+      <option key={item.value} value={item.value}>
+        {item.label}
+      </option>
     ));
   }, [options]);
 

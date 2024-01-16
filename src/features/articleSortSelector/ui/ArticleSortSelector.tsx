@@ -8,19 +8,19 @@ import { Select, SelectOption } from "shared/ui/Select/Select";
 interface IProps {
   className?: string;
   order: SortOrderType;
-  sortField: ArticleSortFieldEnum;
+  sort: ArticleSortFieldEnum;
   onChangeOrder: (newOrder: SortOrderType) => void;
   onChangeSort: (newSort: ArticleSortFieldEnum) => void;
 }
 
 export const ArticleSortSelector: FC<IProps> = (props) => {
-  const { className } = props;
+  const { className, order, sort, onChangeOrder, onChangeSort } = props;
   const { t } = useTranslation();
 
-  const orderOptions = useMemo<SelectOption[]>(
+  const orderOptions = useMemo<SelectOption<SortOrderType>[]>(
     () => [
       {
-        value: "abs",
+        value: "asc",
         label: t("возрастанию"),
       },
       {
@@ -31,7 +31,7 @@ export const ArticleSortSelector: FC<IProps> = (props) => {
     [t]
   );
 
-  const sortFieldOptions = useMemo<SelectOption[]>(
+  const sortOptions = useMemo<SelectOption<ArticleSortFieldEnum>[]>(
     () => [
       {
         value: ArticleSortFieldEnum.CREATED,
@@ -51,8 +51,18 @@ export const ArticleSortSelector: FC<IProps> = (props) => {
 
   return (
     <div className={classNames("", {}, [className])}>
-      <Select placeholder={t("сортировать по")} options={orderOptions} />
-      <Select placeholder={t("сортировать по")} options={sortFieldOptions} />
+      <Select
+        placeholder={t("сортировать по")}
+        options={orderOptions}
+        value={order}
+        onChange={onChangeOrder}
+      />
+      <Select
+        placeholder={t("сортировать по")}
+        options={sortOptions}
+        value={sort}
+        onChange={onChangeSort}
+      />
     </div>
   );
 };

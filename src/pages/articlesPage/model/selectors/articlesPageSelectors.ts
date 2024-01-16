@@ -1,14 +1,11 @@
 import { IStateSchema } from "app/providers/storeProvider";
-import { ArticleViewEnum } from "entities/Article/model/types/article";
+import { ArticleSortFieldEnum, ArticleViewEnum } from "entities/Article";
 
 export const getArticlesPageIsLoading = (state: IStateSchema) =>
   state.articlesPage?.isLoading;
 
 export const getArticlesPageError = (state: IStateSchema) =>
   state.articlesPage?.error;
-
-export const getArticlesPageView = (state: IStateSchema) =>
-  state.articlesPage?.view || ArticleViewEnum.LIST;
 
 export const getArticlesPageNum = (state: IStateSchema) =>
   state.articlesPage?.page || 1;
@@ -21,3 +18,15 @@ export const getArticlesPageHasMore = (state: IStateSchema) =>
 
 export const getArticlesPageInited = (state: IStateSchema) =>
   state.articlesPage?._inited;
+
+export const getArticlesPageView = (state: IStateSchema) =>
+  state.articlesPage?.view || ArticleViewEnum.LIST;
+
+export const getArticlesPageOrder = (state: IStateSchema) =>
+  state.articlesPage?.order ?? "asc";
+
+export const getArticlesPageSort = (state: IStateSchema) =>
+  state.articlesPage?.sort ?? ArticleSortFieldEnum.CREATED;
+
+export const getArticlesPageSearch = (state: IStateSchema) =>
+  state.articlesPage?.search ?? "";
