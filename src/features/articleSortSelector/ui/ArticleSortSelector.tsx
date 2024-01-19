@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import { SortOrderType } from "shared/types";
 import { Select, SelectOption } from "shared/ui/Select/Select";
+import cls from "./ArticleSortSelector.module.scss";
 
 interface IProps {
   className?: string;
@@ -50,7 +51,7 @@ export const ArticleSortSelector: FC<IProps> = (props) => {
   );
 
   return (
-    <div className={classNames("", {}, [className])}>
+    <div className={classNames(cls.sortWrapper, {}, [className])}>
       <Select
         placeholder={t("сортировать по")}
         options={orderOptions}

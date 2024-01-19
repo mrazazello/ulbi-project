@@ -34,6 +34,7 @@ export type ArticleBlock =
   | IArticleImageBlock;
 
 export enum ArticlesTypesEnum {
+  ALL = "All",
   IT = "IT",
   SIENCE = "Sience",
 }

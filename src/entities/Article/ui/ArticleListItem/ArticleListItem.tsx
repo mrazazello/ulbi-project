@@ -27,7 +27,7 @@ interface IProps {
 
 export const ArticleListItem: FC<IProps> = (props) => {
   const { className, article, view } = props;
-  const [isHover, bindHover] = useHover();
+  const [, bindHover] = useHover();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ export const ArticleListItem: FC<IProps> = (props) => {
     navigate(routePath.articles_detail + article.id);
   }, [navigate, article.id]);
 
-  console.log("hover: ", isHover.toString());
+  // console.log("hover: ", isHover.toString());
 
   const types = <Text text={article.type.join(", ")} className={cls.types} />;
   const views = (

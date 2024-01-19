@@ -7,6 +7,7 @@ import { IStateSchema } from "app/providers/storeProvider";
 import {
   ArticleSortFieldEnum,
   ArticleViewEnum,
+  ArticlesTypesEnum,
   IArticle,
 } from "entities/Article";
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from "shared/const/localStorage";
@@ -36,6 +37,7 @@ export const articlePageSlice = createSlice({
     order: "asc",
     sort: ArticleSortFieldEnum.CREATED,
     search: "",
+    type: ArticlesTypesEnum.ALL,
     _inited: false,
   }),
   reducers: {
@@ -63,22 +65,31 @@ export const articlePageSlice = createSlice({
       state.limit = view === ArticleViewEnum.LIST ? 4 : 9;
       state._inited = true;
     },
+    setType: (state, action: PayloadAction<ArticlesTypesEnum>) => {
+      state.type = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticlesList.pending, (state) => {
+      .addCase(fetchArticlesList.pending, (state, action) => {
         state.error = undefined;
         state.isLoading = true;
-      })
-      .addCase(
-        fetchArticlesList.fulfilled,
-        (state, action: PayloadAction<IArticle[]>) => {
-          state.isLoading = false;
-          state.error = undefined;
-          articlesAdapter.addMany(state, action.payload);
-          state.hasMore = action.payload.length > 0;
+
+        if (action.meta.arg.replace) {
+          articlesAdapter.removeAll(state);
         }
-      )
+      })
+      .addCase(fetchArticlesList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = undefined;
+        state.hasMore = action.payload.length >= state.limit;
+
+        if (action.meta.arg.replace) {
+          articlesAdapter.setAll(state, action.payload);
+        } else {
+          articlesAdapter.addMany(state, action.payload);
+        }
+      })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;

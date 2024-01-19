@@ -4,11 +4,13 @@ import {
   ArticleViewSelector,
 } from "entities/Article";
 import { ArticleSortSelector } from "features/articleSortSelector";
+import { ArticleTypeTabs } from "features/articleTypeTabs";
 import { FC, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useDebounce } from "shared/lib/useDebounce/useDebounce";
 import { SortOrderType } from "shared/types";
 import { Card } from "shared/ui/Card/Card";
 import { Input } from "shared/ui/Input/Input";
@@ -18,6 +20,7 @@ import {
   getArticlesPageSort,
   getArticlesPageView,
 } from "../model/selectors/articlesPageSelectors";
+import { fetchArticlesList } from "../model/services/fetchArticlesList/fetchArticlesList";
 import { articlesPageActions } from "../model/slice/articlePageSlice";
 import cls from "./articlesPageFilters.module.scss";
 
@@ -35,6 +38,10 @@ export const ArticlesPageFilters: FC<IProps> = (props) => {
   const sort = useSelector(getArticlesPageSort);
   const search = useSelector(getArticlesPageSearch);
 
+  const fetchData = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: true }));
+  }, [dispatch]);
+
   const onChangeView = useCallback(
     (newView: ArticleViewEnum) => {
       dispatch(articlesPageActions.setView(newView));
@@ -45,22 +52,30 @@ export const ArticlesPageFilters: FC<IProps> = (props) => {
   const onChangeOrder = useCallback(
     (newOrder: SortOrderType) => {
       dispatch(articlesPageActions.setOrder(newOrder));
+      dispatch(articlesPageActions.setPage(1));
+      fetchData();
     },
-    [dispatch]
+    [dispatch, fetchData]
   );
 
   const onChangeSort = useCallback(
     (newSort: ArticleSortFieldEnum) => {
       dispatch(articlesPageActions.setSort(newSort));
+      dispatch(articlesPageActions.setPage(1));
+      fetchData();
     },
-    [dispatch]
+    [dispatch, fetchData]
   );
+
+  const debouncedSearch = useDebounce(fetchData, 1000);
 
   const onChangeSearch = useCallback(
     (newSearch: string) => {
       dispatch(articlesPageActions.setSearch(newSearch));
+      dispatch(articlesPageActions.setPage(1));
+      debouncedSearch();
     },
-    [dispatch]
+    [dispatch, debouncedSearch]
   );
 
   return (
@@ -82,6 +97,7 @@ export const ArticlesPageFilters: FC<IProps> = (props) => {
           onChange={onChangeSearch}
         />
       </Card>
+      <ArticleTypeTabs />
     </div>
   );
 };

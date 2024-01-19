@@ -4,6 +4,8 @@ import { ArticleViewEnum, IArticle } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import cls from "./articleList.module.scss";
+import { Text } from "shared/ui/Text/Text";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   className?: string;
@@ -27,6 +29,15 @@ export const ArticleList: FC<IProps> = (props) => {
     isLoading,
     view = ArticleViewEnum.THUMB,
   } = props;
+  const { t } = useTranslation();
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <Text text={t("Статьи не найдены")} />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

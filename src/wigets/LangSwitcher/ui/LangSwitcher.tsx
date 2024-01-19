@@ -6,6 +6,7 @@ import { DropDown } from "shared/ui/DropDown";
 import { IDropDownMenuItem } from "shared/ui/DropDown/DropDown";
 
 type LangType = "ru" | "en";
+
 interface IProps {
   className?: string;
 }
@@ -13,6 +14,7 @@ interface IProps {
 const LangSwitcherComponent: FC<IProps> = (props: IProps) => {
   const { className } = props;
   const { i18n } = useTranslation();
+  console.log(i18n);
 
   const changeLangToggle = (lang: LangType) => {
     i18n.changeLanguage(lang);

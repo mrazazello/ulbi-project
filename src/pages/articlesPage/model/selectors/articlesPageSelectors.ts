@@ -1,5 +1,9 @@
 import { IStateSchema } from "app/providers/storeProvider";
-import { ArticleSortFieldEnum, ArticleViewEnum } from "entities/Article";
+import {
+  ArticleSortFieldEnum,
+  ArticleViewEnum,
+  ArticlesTypesEnum,
+} from "entities/Article";
 
 export const getArticlesPageIsLoading = (state: IStateSchema) =>
   state.articlesPage?.isLoading;
@@ -30,3 +34,6 @@ export const getArticlesPageSort = (state: IStateSchema) =>
 
 export const getArticlesPageSearch = (state: IStateSchema) =>
   state.articlesPage?.search ?? "";
+
+export const getArticlesPageType = (state: IStateSchema) =>
+  state.articlesPage?.type ?? ArticlesTypesEnum.ALL;

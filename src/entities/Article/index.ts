@@ -6,6 +6,7 @@ import { articleActions, articleReducer } from "./model/slice/articleSlice";
 import {
   ArticleSortFieldEnum,
   ArticleViewEnum,
+  ArticlesTypesEnum,
   IArticle,
   IArticleSchema,
 } from "./model/types/article";
@@ -15,16 +16,17 @@ import { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelecto
 
 export {
   ArticleDetail,
+  ArticleList,
+  ArticleSortFieldEnum,
+  ArticleViewEnum,
+  ArticleViewSelector,
+  ArticlesTypesEnum,
   articleActions,
   articleReducer,
   fetchArticleById,
-  getArticleIsLoading,
-  getArticleError,
   getArticleData,
-  ArticleList,
-  ArticleViewEnum,
-  ArticleSortFieldEnum,
-  ArticleViewSelector,
+  getArticleError,
+  getArticleIsLoading,
 };
 
 export type { IArticle, IArticleSchema };

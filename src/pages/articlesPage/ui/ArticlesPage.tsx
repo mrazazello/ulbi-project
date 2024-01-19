@@ -23,6 +23,7 @@ import {
 } from "../model/slice/articlePageSlice";
 import { ArticlesPageFilters } from "./ArticlesPageFilters";
 import cls from "./articlesPage.module.scss";
+import { useSearchParams } from "react-router-dom";
 
 const reducers: ReducerListType = {
   articlesPage: articlesPageReducer,
@@ -35,13 +36,14 @@ const ArticlesPage = () => {
   const articles = useSelector(getArticles.selectAll);
   const pageView = useSelector(getArticlesPageView);
   const error = useSelector(getArticlesPageError);
+  const [searchParams] = useSearchParams();
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   }, []);
 
   if (error) {
