@@ -1,10 +1,10 @@
-import { FC, useCallback } from "react";
+import { FC, HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import eyeIcon from "shared/assets/icons/eye.svg";
 import { routePath } from "shared/config/routeConfig/routeConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useHover } from "shared/lib/hooks/useHover";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
 import { Card } from "shared/ui/Card/Card";
@@ -23,19 +23,13 @@ interface IProps {
   className?: string;
   article: IArticle;
   view: ArticleViewEnum;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FC<IProps> = (props) => {
-  const { className, article, view } = props;
+  const { className, article, view, target } = props;
   const [, bindHover] = useHover();
   const { t } = useTranslation();
-  const navigate = useNavigate();
-
-  const onOpenArticle = useCallback(() => {
-    navigate(routePath.articles_detail + article.id);
-  }, [navigate, article.id]);
-
-  // console.log("hover: ", isHover.toString());
 
   const types = <Text text={article.type.join(", ")} className={cls.types} />;
   const views = (
@@ -69,9 +63,14 @@ export const ArticleListItem: FC<IProps> = (props) => {
             />
           )}
           <div className={cls.footer}>
-            <Button theme={ButtonThemeEnum.SECONDARY} onClick={onOpenArticle}>
-              {t("читать далее")}
-            </Button>
+            <AppLink
+              to={routePath.articles_detail + article.id}
+              target={target}
+            >
+              <Button theme={ButtonThemeEnum.SECONDARY}>
+                {t("читать далее")}
+              </Button>
+            </AppLink>
             {views}
           </div>
         </Card>
@@ -84,17 +83,19 @@ export const ArticleListItem: FC<IProps> = (props) => {
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
       {...bindHover}
     >
-      <Card onClick={onOpenArticle}>
-        <div className={cls.imageWrapper}>
-          <img src={article.img} className={cls.img} alt={article.title} />
-          <Text text={article.createdAt} className={cls.date} />
-        </div>
-        <div className={cls.infoWrapper}>
-          {types}
-          {views}
-        </div>
-        <Text text={article.title} className={cls.title} />
-      </Card>
+      <AppLink to={routePath.articles_detail + article.id} target={target}>
+        <Card>
+          <div className={cls.imageWrapper}>
+            <img src={article.img} className={cls.img} alt={article.title} />
+            <Text text={article.createdAt} className={cls.date} />
+          </div>
+          <div className={cls.infoWrapper}>
+            {types}
+            {views}
+          </div>
+          <Text text={article.title} className={cls.title} />
+        </Card>
+      </AppLink>
     </div>
   );
 };

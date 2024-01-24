@@ -1,6 +1,7 @@
 import { Reducer } from "@reduxjs/toolkit";
 import {
   IReduxStoreWithManager,
+  IStateSchema,
   StateSchemaKeyType,
 } from "app/providers/storeProvider/config/stateSchema";
 import { FC, useEffect } from "react";
@@ -8,7 +9,7 @@ import { useStore } from "react-redux";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 
 export type ReducerListType = {
-  [name in StateSchemaKeyType]?: Reducer;
+  [name in StateSchemaKeyType]?: Reducer<NonNullable<IStateSchema[name]>>;
 };
 
 interface IProps {

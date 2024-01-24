@@ -10,10 +10,10 @@ import { IArticleSchema } from "entities/Article";
 import { ICounterSchema } from "entities/counter";
 import { IProfileSchema } from "entities/profile";
 import { IUserSchema } from "entities/user";
-import { ILoginSchema } from "features/AuthByUsername/model/types/loginSchema";
+import { ILoginSchema } from "features/AuthByUsername";
 import { IAddCommentFormSchema } from "features/addComment";
 import { IScrollRestoreSchema } from "features/scrollRestore";
-import { IArticleDetailCommentSchema } from "pages/articleDetailPage";
+import { IArticleDetailPageSchema } from "pages/articleDetailPage";
 import { IArticlePageSchema } from "pages/articlesPage";
 
 export interface IStateSchema {
@@ -25,7 +25,7 @@ export interface IStateSchema {
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;
   articleDetail?: IArticleSchema;
-  articleDetailsComments?: IArticleDetailCommentSchema;
+  articleDetailPage?: IArticleDetailPageSchema;
   addCommentForm?: IAddCommentFormSchema;
   articlesPage?: IArticlePageSchema;
 }

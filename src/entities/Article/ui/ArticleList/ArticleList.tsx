@@ -1,17 +1,18 @@
-import { FC } from "react";
+import { FC, HTMLAttributeAnchorTarget } from "react";
+import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
+import { Text } from "shared/ui/Text/Text";
 import { ArticleViewEnum, IArticle } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import cls from "./articleList.module.scss";
-import { Text } from "shared/ui/Text/Text";
-import { useTranslation } from "react-i18next";
 
 interface IProps {
   className?: string;
   articles: IArticle[];
   isLoading?: boolean;
   view?: ArticleViewEnum;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleViewEnum) => {
@@ -28,6 +29,7 @@ export const ArticleList: FC<IProps> = (props) => {
     articles,
     isLoading,
     view = ArticleViewEnum.THUMB,
+    target,
   } = props;
   const { t } = useTranslation();
 
@@ -48,6 +50,7 @@ export const ArticleList: FC<IProps> = (props) => {
               article={el}
               view={view}
               className={cls.card}
+              target={target}
             />
           ))
         : null}

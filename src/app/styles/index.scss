@@ -45,3 +45,19 @@
   align-items: center;
   justify-content: center;
 }
+
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(var(--card-bg));
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--inverted-primary-color));
+  border-radius: 20px;
+  border: 2px solid rgb(var(--primary-color));
+}
