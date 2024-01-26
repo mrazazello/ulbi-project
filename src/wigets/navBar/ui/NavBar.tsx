@@ -33,12 +33,12 @@ const NavBarComponent = ({ className }: PropsType) => {
   };
 
   return (
-    <nav className={classNames(cls.navBar, {}, [className])}>
-      <div className={cls.mainMenu}>
+    <header className={classNames(cls.navBar, {}, [className])}>
+      <nav className={cls.mainMenu}>
         {navBarItems.map((item) => (
           <NavBarItem key={item.url} item={item} />
         ))}
-      </div>
+      </nav>
       <LangSwitcher />
       <ThemeSwitcher />
       {authData?.username ? (
@@ -53,7 +53,7 @@ const NavBarComponent = ({ className }: PropsType) => {
       {isAuthorize && (
         <LoginModal isOpen={isAuthorize} onClose={() => setAuthorise(false)} />
       )}
-    </nav>
+    </header>
   );
 };
 

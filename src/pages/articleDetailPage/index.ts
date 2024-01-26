@@ -1,7 +1,7 @@
 import { IArticleDetailPageSchema } from "./model/types";
 import { IArticleDetailRecommendationsSchema } from "./model/types/ArticleDatailRecommendationsSchema";
 import { IArticleDetailCommentSchema } from "./model/types/ArticleDetailCommentSchema";
-import { ArticleDetailPageAsync } from "./ui/ArticleDetailPage.async";
+import { ArticleDetailPageAsync } from "./ui/ArticleDetailPage/ArticleDetailPage.async";
 
 export { ArticleDetailPageAsync as ArticleDetailPage };
 export type {

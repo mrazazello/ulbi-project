@@ -32,8 +32,8 @@ export const getSidebarItemSelector = createSelector(
         },
 
         {
-          text: "Article page",
-          url: routePath.articles_detail + "1",
+          text: "Create article",
+          url: routePath.articles_create,
           Icon: PlayBtn,
           authOnly: true,
         }
