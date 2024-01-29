@@ -18,6 +18,8 @@ export default (env: IBuildEnv): webpack.Configuration => {
     buildLocales: path.resolve(__dirname, "build", "locales"),
   };
 
+  console.log("webpack env ", env);
+
   const mode: BuildModeType = env.mode || "development";
   const isDev = mode === "development";
   const PORT = env.port || 9000;

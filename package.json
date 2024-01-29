@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --env port=9000",
     "start:dev": "concurrently \"webpack serve --env port=9000\" \"node ./json-server/index.js\"",
-    "build:prod": "npx webpack --env mode=production apiUrl=https://ulbi-json-backend.vercel.app",
+    "build:prod": "npx webpack --env mode=production --env apiURL=https://ulbi-json-backend.vercel.app",
     "build:dev": "npx webpack --env mode=development",
     "start:json-server": "node ./json-server/index.js",
     "lint:ts": "npx eslint **/*.{ts,tsx}",
