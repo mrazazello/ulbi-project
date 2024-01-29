@@ -3,8 +3,10 @@ import { USER_LOCALSTORAGE_KEY } from "shared/const/localStorage";
 
 export const api = axios.create({
   baseURL: API_URL,
-  headers: {
-    "Content-Type": "application/json",
-    authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY),
-  },
+});
+
+api.interceptors.request.use((config) => {
+  config.headers.Authorization =
+    localStorage.getItem(USER_LOCALSTORAGE_KEY) || "";
+  return config;
 });
