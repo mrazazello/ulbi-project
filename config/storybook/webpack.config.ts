@@ -14,6 +14,8 @@ export default ({ config }: { config: WebpackConfiguration }) => {
     entry: "",
     scssGlobal: path.resolve(__dirname, "..", "..", "src", "app", "styles"),
     src: path.resolve(__dirname, "..", "..", "src"),
+    locales: path.resolve(__dirname, "..", "..", "public", "locales"),
+    buildLocales: path.resolve(__dirname, "..", "..", "build", "locales"),
   };
 
   config.resolve!.modules!.push(paths.src);

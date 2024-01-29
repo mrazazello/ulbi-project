@@ -14,6 +14,8 @@ export default (env: IBuildEnv): webpack.Configuration => {
     html: path.resolve(__dirname, "public", "index.html"),
     src: path.resolve(__dirname, "src"),
     scssGlobal: path.resolve(__dirname, "src", "app", "styles"),
+    locales: path.resolve(__dirname, "public", "locales"),
+    buildLocales: path.resolve(__dirname, "build", "locales"),
   };
 
   const mode: BuildModeType = env.mode || "development";

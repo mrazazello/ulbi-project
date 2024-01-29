@@ -6,6 +6,8 @@ export interface IBuildPaths {
   html: string;
   src: string;
   scssGlobal: string;
+  locales: string;
+  buildLocales: string;
 }
 
 export interface IBuildEnv {
