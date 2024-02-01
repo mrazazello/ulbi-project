@@ -19,6 +19,8 @@ interface IProps {
   onScrollEnd?: () => void;
 }
 
+export const PAGE_ID = "PAGEID";
+
 export const Page = memo((props: IProps) => {
   const { className, children, onScrollEnd } = props;
   const dispatch = useAppDispatch();
@@ -60,6 +62,7 @@ export const Page = memo((props: IProps) => {
       ref={wrapperRef}
       className={classNames(cls.Page, {}, [className])}
       onScroll={scrollHandler}
+      id={PAGE_ID}
     >
       {children}
       {onScrollEnd ? (
