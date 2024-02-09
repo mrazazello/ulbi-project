@@ -1,7 +1,7 @@
-import { IComment } from "entities/Comment/model/types/comment";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
+import { IComment } from "../../model/types/comment";
 import { CommentCard } from "../CommentCard/CommentCard";
 import cls from "./commentlist.module.scss";
 

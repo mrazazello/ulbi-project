@@ -12,17 +12,17 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Text } from "shared/ui/Text/Text";
 
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { getArticleData } from "../../model/selectors/getArticleData/getArticleData";
 import { getArticleError } from "../../model/selectors/getArticleError/getArticleError";
 import { getArticleIsLoading } from "../../model/selectors/getArticleIsLoading/getArticleIsLoading";
 import { fetchArticleById } from "../../model/service/fetchArticleById/fetchArticleById";
 import { articleReducer } from "../../model/slice/articleSlice";
 import { ArticleBlock, ArticleBlockTypeEnum } from "../../model/types/article";
+import { ArticleTextBlockComponent } from "../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
-import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import cls from "./articledetail.module.scss";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 
 interface IProps {
   className?: string;

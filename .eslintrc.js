@@ -20,7 +20,7 @@ module.exports = {
     project: ["./tsconfig.json"],
   },
   ignorePatterns: [".eslintrc.*", "./json-server/*.js", ".fttemplates/*"],
-  plugins: ["import", "react", "prettier", "react-hooks"],
+  plugins: ["import", "react", "prettier", "react-hooks", "fsd-check-paths"],
   rules: {
     "prettier/prettier": "error",
     "import/no-extraneous-dependencies": "warn",
@@ -30,6 +30,7 @@ module.exports = {
     "react/function-component-definition": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
+    "fsd-check-paths/path-checker": "error",
   },
   settings: {
     react: {

@@ -1,5 +1,4 @@
 import { getArticleData } from "entities/Article";
-import { getArticleUserCanEdit } from "pages/articleDetailPage/model/selectors/article";
 import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -7,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { routePath } from "shared/config/routeConfig/routeConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
+import { getArticleUserCanEdit } from "../../model/selectors/article";
 import cls from "./ArticleDetailPageHeader.module.scss";
 
 interface IProps {

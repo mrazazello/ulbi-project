@@ -3,9 +3,9 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { ThemeEnum } from "app/providers/themeProvider";
 import { CountryEnum } from "entities/country";
 import { CurrencyEnum } from "entities/currency";
-import { IProfile } from "entities/profile/model/types/profile";
 import avatarImg from "shared/assets/tests/test-avatar.png";
 import { themeDecorator } from "shared/config/storybook/styleDecorator/themeDecorator";
+import { IProfile } from "../../model/types/profile";
 import { ProfileCard } from "./ProfileCard";
 
 const profileData: IProfile = {
