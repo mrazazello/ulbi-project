@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Button, ButtonThemeEnum } from "shared/ui/Button/Button";
+import { HStack } from "shared/ui/Stack";
 import cls from "./profilePageHeader.module.scss";
 
 interface IProps {
@@ -41,29 +42,34 @@ export const ProfilePageHeader: FC<IProps> = (props) => {
 
   return (
     <div className={classNames(cls.profilePageHeader, {}, [className])}>
-      <h1>{t("page title")}</h1>
-      {canEdit && (
-        <>
-          {readonly ? (
-            <Button
-              theme={ButtonThemeEnum.PRIMARY}
-              className={cls.editBtn}
-              onClick={onEdit}
-            >
-              {t("edit")}
-            </Button>
-          ) : (
-            <div className={cls.editBtn}>
-              <Button theme={ButtonThemeEnum.SECONDARY} onClick={onCancelEdit}>
-                {t("cancel")}
+      <HStack justify="between">
+        <h1>{t("page title")}</h1>
+        {canEdit && (
+          <>
+            {readonly ? (
+              <Button
+                theme={ButtonThemeEnum.PRIMARY}
+                className={cls.editBtn}
+                onClick={onEdit}
+              >
+                {t("edit")}
               </Button>
-              <Button theme={ButtonThemeEnum.PRIMARY} onClick={onSave}>
-                {t("save")}
-              </Button>
-            </div>
-          )}
-        </>
-      )}
+            ) : (
+              <HStack>
+                <Button
+                  theme={ButtonThemeEnum.SECONDARY}
+                  onClick={onCancelEdit}
+                >
+                  {t("cancel")}
+                </Button>
+                <Button theme={ButtonThemeEnum.PRIMARY} onClick={onSave}>
+                  {t("save")}
+                </Button>
+              </HStack>
+            )}
+          </>
+        )}
+      </HStack>
     </div>
   );
 };
