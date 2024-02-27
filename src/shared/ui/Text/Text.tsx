@@ -21,6 +21,13 @@ interface IProps {
   size?: TextSize;
 }
 
+type TextType = "p" | "h1";
+
+const textTags: Record<TextSize, TextType> = {
+  [TextSize.M]: "p",
+  [TextSize.L]: "h1",
+};
+
 export const Text = memo((props: IProps) => {
   const { className, text, align = TextAlign.LEFT, size = TextSize.M } = props;
 
@@ -29,7 +36,13 @@ export const Text = memo((props: IProps) => {
     [cls[size]]: true,
   };
 
-  return <p className={classNames(cls.text, mods, [className])}>{text}</p>;
+  const TextTag = textTags[size];
+
+  return (
+    <TextTag className={classNames(cls.text, mods, [className])}>
+      {text}
+    </TextTag>
+  );
 });
 
 Text.displayName = "Text";
