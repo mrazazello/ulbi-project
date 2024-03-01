@@ -1,0 +1,56 @@
+.listbox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  button {
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    text-align: left;
+    text-shadow: none;
+    color: rgb(var(--primary-color));
+    background: rgb(var(--bg-color));
+    border: 1px solid #395365; // var for input and button border
+    height: 34px;
+    border-radius: 5px;
+    padding: 0 0.75rem;
+    transition: border-color 400ms;
+  }
+}
+
+.options {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border: 1px solid #395365; // var for input and button border
+  background: rgb(var(--bg-color));
+  color: rgb(var(--primary-color));
+
+  li {
+    list-style-type: none;
+    padding: 0 0.75rem;
+    cursor: pointer;
+  }
+}
+
+.optionsDown {
+  top: 100%;
+}
+
+.optionsUp {
+  bottom: calc(100% - 28px);
+}
+
+.itemActive,
+.itemSelected {
+  background-color: rgb(var(--form-bg-color));
+}
+
+.placeholder {
+  margin-bottom: 2px;
+}
+
+.readonly {
+  opacity: 0.7;
+}

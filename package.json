@@ -89,6 +89,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
+    "@headlessui/react": "^1.7.18",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react-virtualized": "^9.21.29",
     "axios": "^1.4.0",

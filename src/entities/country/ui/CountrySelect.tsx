@@ -1,7 +1,7 @@
 import { FC, useCallback } from "react";
 
 import { classNames } from "shared/lib/classNames/classNames";
-import { Select } from "shared/ui/Select/Select";
+import { ListBox } from "shared/ui/ListBox/ListBox";
 import { CountryEnum } from "../model/types/country";
 
 interface IProps {
@@ -27,14 +27,14 @@ export const CountrySelect: FC<IProps> = (props) => {
   );
 
   return (
-    <Select
+    <ListBox
       className={classNames("", {}, [className])}
-      name="country"
       placeholder="Country"
       options={countryOptions}
       value={value}
       onChange={changeCountryHandler}
       readonly={readonly}
+      direction="down"
     />
   );
 };
